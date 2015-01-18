@@ -35,12 +35,13 @@ public enum WAILocationAuthorization : Int {
 }
 
 /**
-    These profils define different location parameters (accuracy, distance update, ...).
+    These profils represent different location parameters (accuracy, distance update, ...).
+    Look at the didSet method of the locationPrecision variable for more informations
 
-    - Default: Default profil, good profil for general use case
+    - Default: This profil can be used for most of your usage
     - Low:     Low accuracy profil
     - Medium:  Medium accuracy profil
-    - High:    High accuracy profil, when you need the best location informations
+    - High:    High accuracy profil, when you need the best location
 */
 public enum WAILocationProfil : Int {
     case Default
@@ -51,7 +52,7 @@ public enum WAILocationProfil : Int {
 
 typealias WAIAuthorizationResult = (locationIsAuthorized : Bool) -> Void;
 typealias WAILocationUpdate = (location : CLLocation) -> Void;
-typealias WAIReversGeocodedLocationResult = (placemark : CLPlacemark?) -> Void;
+typealias WAIReversGeocodedLocationResult = (placemark : CLPlacemark!) -> Void;
 
 // MARK: - Class Implementation
 
@@ -173,6 +174,11 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
             let geocoder = CLGeocoder();
             
             geocoder.reverseGeocodeLocation(location, completionHandler: { (placesmark, error) -> Void in
+                
+                if (error != nil) {
+                    println("Reverse geodcode fail: \(error.localizedDescription)");
+                    return;
+                }
                 
                 if (placesmark != nil && placesmark.count > 0) {
                     var placemark = placesmark.first as CLPlacemark;

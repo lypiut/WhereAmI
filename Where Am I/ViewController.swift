@@ -10,24 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
-            println("New Location \(location)");
-        }, locationRefusedHandler: { (locationIsAuthorized) -> Void in
-            if (!locationIsAuthorized) {
-                println("location is not authorized");
-            }
-        });
-        
-        WhereAmI.sharedInstance.whatIsThisPlace({ (placemark) -> Void in
-            println("You are \(placemark)")
-        }, locationRefusedHandler: { (locationIsAuthorized) -> Void in
-            if (!locationIsAuthorized) {
-                println("location is not authorized");
-            }
-        });
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -36,7 +22,79 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func WhereAmITap(sender: AnyObject) {
+        
+        self.textView.text = nil;
+        
+        WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
+            
+            self.textView.text = location.description;
+            
+            }, locationRefusedHandler: { [unowned self] (locationIsAuthorized) -> Void in
+                
+                if (!locationIsAuthorized) {
+                    self.showAlertView();
+                }
+        });
+        
+    }
+    @IBAction func WhatIsThisPlaceTap(sender: AnyObject) {
+        
+        self.textView.text = nil;
+        
+        WhereAmI.sharedInstance.whatIsThisPlace({ (placemark) -> Void in
+            
+            if (placemark != nil) {
+                self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)";
+            }
+            
+            }, locationRefusedHandler: {[unowned self] (locationIsAuthorized) -> Void in
+                
+                if (!locationIsAuthorized) {
+                    self.showAlertView();
+                }
+        });
+        
+    }
+    
+    func fullControlWay() {
 
-
+        if (!WhereAmI.userHasBeenPromptedForLocationUse()) {
+            
+            WhereAmI.sharedInstance.askLocationAuthorization({ [unowned self](locationIsAuthorized) -> Void in
+               
+                if (!locationIsAuthorized) {
+                    self.showAlertView();
+                } else {
+                    self.startLocationUpdate();
+                }
+            });
+        }
+        else if (!WhereAmI.locationIsAuthorized()) {
+            self.showAlertView();
+        }
+        else {
+            self.startLocationUpdate();
+        }
+    }
+    
+    private func startLocationUpdate() {
+        
+        WhereAmI.sharedInstance.continuousUpdate = true;
+        WhereAmI.sharedInstance.startUpdatingLocation({ (location) -> Void in
+            
+        });
+    }
+    
+    func showAlertView() {
+        
+        var alertView = UIAlertView(title: "Location Refused",
+                                    message: "The app is not allowed to retreive your current location",
+                                    delegate: nil,
+                                    cancelButtonTitle: "OK");
+        
+        alertView.show();
+    }
 }
 
