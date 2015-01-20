@@ -50,21 +50,21 @@ public enum WAILocationProfil : Int {
     case High
 }
 
-typealias WAIAuthorizationResult = (locationIsAuthorized : Bool) -> Void;
-typealias WAILocationUpdate = (location : CLLocation) -> Void;
-typealias WAIReversGeocodedLocationResult = (placemark : CLPlacemark!) -> Void;
+public typealias WAIAuthorizationResult = (locationIsAuthorized : Bool) -> Void;
+public typealias WAILocationUpdate = (location : CLLocation) -> Void;
+public typealias WAIReversGeocodedLocationResult = (placemark : CLPlacemark!) -> Void;
 
 // MARK: - Class Implementation
 
-class WhereAmI : NSObject, CLLocationManagerDelegate {
+public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
-    let locationManager = CLLocationManager();
+    public let locationManager = CLLocationManager();
     /// Max location validity in seconds
-    let locationValidity : NSTimeInterval = 15.0;
-    var horizontalAccuracy : CLLocationDistance = 500.0;
-    var continuousUpdate : Bool = false;
-    var locationAuthorization : WAILocationAuthorization = WAILocationAuthorization.InUseAuthorization;
-    var locationPrecision : WAILocationProfil {
+    public let locationValidity : NSTimeInterval = 15.0;
+    public var horizontalAccuracy : CLLocationDistance = 500.0;
+    public var continuousUpdate : Bool = false;
+    public var locationAuthorization : WAILocationAuthorization = WAILocationAuthorization.InUseAuthorization;
+    public var locationPrecision : WAILocationProfil {
         didSet {
             switch locationPrecision {
             case .Low:
@@ -92,7 +92,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     
     // MARK: - Class methods
     
-    class var sharedInstance: WhereAmI {
+    public class var sharedInstance: WhereAmI {
         struct Singleton {
             static let instance : WhereAmI = WhereAmI();
         }
@@ -105,7 +105,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     
         :returns: return false if the authorization has not been asked, otherwise true
     */
-    class func userHasBeenPromptedForLocationUse() -> Bool {
+    public class func userHasBeenPromptedForLocationUse() -> Bool {
         
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined) {
             return false;
@@ -119,7 +119,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     
         :returns: false if the user's location was denied, otherwise true
     */
-    class func locationIsAuthorized() -> Bool {
+    public class func locationIsAuthorized() -> Bool {
         
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Restricted) {
             return false;
@@ -149,7 +149,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
         :param: locationHandler        The closure return the latest valid user's positon
         :param: locationRefusedHandler When the user refuse location, this closure is called.
     */
-    func whereAmI(locationHandler : WAILocationUpdate, locationRefusedHandler : WAIAuthorizationResult) {
+    public func whereAmI(locationHandler : WAILocationUpdate, locationRefusedHandler : WAIAuthorizationResult) {
         
         self.askLocationAuthorization({ [unowned self] (locationIsAuthorized) -> Void in
             
@@ -167,7 +167,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
         :param: geocoderHandler        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
         :param: locationRefusedHandler When the user refuse location, this closure is called.
     */
-    func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult, locationRefusedHandler : WAIAuthorizationResult) {
+    public func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult, locationRefusedHandler : WAIAuthorizationResult) {
         
         self.whereAmI({ (location) -> Void in
             
@@ -197,7 +197,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     
         :param: locationHandler The closure returns an updated location conforms to the accuracy filters
     */
-    func startUpdatingLocation(locationHandler : WAILocationUpdate?) {
+    public func startUpdatingLocation(locationHandler : WAILocationUpdate?) {
         
         self.locationUpdateHandler = locationHandler;
         self.locationManager.startUpdatingLocation();
@@ -206,7 +206,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Stop the location update and release the location handler.
     */
-    func stopUpdatingLocation() {
+    public func stopUpdatingLocation() {
         
         self.locationManager.stopUpdatingLocation();
         self.locationUpdateHandler = nil;
@@ -217,7 +217,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     
         :param: resultHandler The closure return if the authorization is granted or not
     */
-    func askLocationAuthorization(resultHandler : WAIAuthorizationResult) {
+    public func askLocationAuthorization(resultHandler : WAIAuthorizationResult) {
         
         // if the authorization was already asked we return the result
         if (WhereAmI.userHasBeenPromptedForLocationUse()) {
@@ -249,7 +249,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     
     // MARK: - CLLocationManager Delegate
     
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
         if (self.authorizationHandler != nil) {
             
@@ -264,7 +264,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         
         if (locations.count > 0) {
             
