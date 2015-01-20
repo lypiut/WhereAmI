@@ -63,18 +63,18 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     let locationValidity : NSTimeInterval = 15.0;
     var horizontalAccuracy : CLLocationDistance = 500.0;
     var continuousUpdate : Bool = false;
-    var locationType : WAILocationAuthorization = WAILocationAuthorization.InUseAuthorization;
+    var locationAuthorization : WAILocationAuthorization = WAILocationAuthorization.InUseAuthorization;
     var locationPrecision : WAILocationProfil {
         didSet {
             switch locationPrecision {
             case .Low:
                 self.locationManager.distanceFilter = 500.0;
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-                self.horizontalAccuracy = 1000.0;
+                self.horizontalAccuracy = 2000.0;
             case .Medium:
                 self.locationManager.distanceFilter = 100.0;
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-                self.horizontalAccuracy = 200.0;
+                self.horizontalAccuracy = 500.0;
             case .High:
                 self.locationManager.distanceFilter = 10.0;
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
@@ -82,7 +82,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
             case .Default:
                 self.locationManager.distanceFilter = 50.0;
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-                self.horizontalAccuracy = 500.0;
+                self.horizontalAccuracy = 200.0;
             }
         }
     };
@@ -230,12 +230,12 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
         
         if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
             
-            if (self.locationType == WAILocationAuthorization.AlwaysAuthorization) {
+            if (self.locationAuthorization == WAILocationAuthorization.AlwaysAuthorization) {
                 self.locationManager.requestAlwaysAuthorization();
             } else {
                 self.locationManager.requestWhenInUseAuthorization();
             }
-        } else if (!CLLocationManager.locationServicesEnabled()) {
+        } else {
             //In order to prompt the authorization alert view
             self.startUpdatingLocation(nil);
         }
@@ -271,7 +271,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
             let latestPosition = locations.first as CLLocation;
             let locationAge = -latestPosition.timestamp.timeIntervalSinceNow;
             
-            //Check if the location data is valid for the accuracy profil selected
+            //Check if the location is valid for the accuracy profil selected
             if (locationAge < self.locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < self.horizontalAccuracy) {
                 
                 if (self.locationUpdateHandler != nil) {
