@@ -20,7 +20,7 @@ WhereAmI is available through [CocoaPods](http://cocoapods.org).
 To install add the following line to your Podfile:
 
 ```
-pod 'WhereAmI'
+pod 'WhereAmI', '~> 1.0'
 ```
 
 ###Manual Installation
@@ -38,7 +38,7 @@ Don't forget to set the key `NSLocationWhenInUseUsageDescription` or `NSLocation
 By default WhereAmI requests the "When in use" permission but you have the possibility to set the "Always" permission by changing the `locationAuthorization` variable.
 
 ```swift
-WhereAmI.sharedInstance.locationAuthorization = WAILocationAuthorization.AlwaysAuthorization;
+WhereAmI.sharedInstance.locationAuthorization = WAILocationAuthorization.AlwaysAuthorization
 ```
 
 ###Set accuracy profil
@@ -46,7 +46,7 @@ WhereAmI.sharedInstance.locationAuthorization = WAILocationAuthorization.AlwaysA
 WhereAmI provides 4 location profiles which influencing the accuracy of the location:
 
 ```swift
-Default 	// Good mix between precision, location speed. 200m of accuracy
+Default 	// Good mix between precision and location speed. 200m of accuracy
 Low 		// Low precision, fast location speed 2000m of accuracy	
 Medium		// Medium precision. 500m of accuracy
 High		// High precision, the location update can take several time to obtain data for the desired accuracy 10m accuracy
