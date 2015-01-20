@@ -56,7 +56,7 @@ These profiles are basic for the moment but they will evolve in future releases.
 
 ###Get current location
 
-To obtain the current location just the `whereAmI` method.
+To obtain the current location use the `whereAmI` method.
 The location request is executed once by default. If you want a continuous update of the location set the `continuousUpdate` to true.
 
 ```swift
