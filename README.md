@@ -55,7 +55,8 @@ High		// High precision and low location speed with an accuracy of ~10m
 These profiles are basic for the moment but they will evolve in future releases.
 
 ###Get current location
- 
+
+To obtain the current location just the `whereAmI` method.
 The location request is executed once by default. If you want a continuous update of the location set the `continuousUpdate` to true.
 
 ```swift
@@ -75,6 +76,8 @@ WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
 ```
 
 ###Get current address 
+
+You have the possibility to retrieve informations about the current location (street, city, etc.) with the `whatIsThisPlace` method.
 
 ```swift
 WhereAmI.sharedInstance.whatIsThisPlace({ (placemark) -> Void in
