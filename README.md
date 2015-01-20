@@ -1,8 +1,8 @@
 # WhereAmI
 
-An easy to use Core Location library in Swift, with few lines of code you can obtain
-- The current location
-- The current address
+An easy to use Core Location library in Swift with few lines of code you can obtain:
+- the current location
+- the current address
 
 
 ##Requirement
@@ -15,9 +15,9 @@ An easy to use Core Location library in Swift, with few lines of code you can ob
 ###Cocoa Pods
 
 WhereAmI is available through [CocoaPods](http://cocoapods.org).  
-(WARNING: The Swift support is only available in the 0.36 beta 1)
+(WARNING: Swift support for cocoapods is starting since 0.36 beta 1)
 
-To install add the following line to your Podfile:
+To install WhereAmI, add the following line to your Podfile:
 
 ```
 pod 'WhereAmI', '~> 1.0'
@@ -25,13 +25,13 @@ pod 'WhereAmI', '~> 1.0'
 
 ###Manual Installation
 
-Just drop the class file *WhereAmI.swift* located in the Source folder into your project.
+Just drop the class file *WhereAmI.swift*, located in the `Source` folder, into your project.
 
 ##How to use
 
-###Request access to location service
+###Request access to Location Services
 
-WhereAmI automatically handles permission request to access location services.
+WhereAmI automatically handles permission requests to access location services.
 
 Don't forget to set the key `NSLocationWhenInUseUsageDescription` or `NSLocationAlwaysUsageDescription` in your app's `Info.plist`.  
 
@@ -41,22 +41,22 @@ By default WhereAmI requests the "When in use" permission but you have the possi
 WhereAmI.sharedInstance.locationAuthorization = WAILocationAuthorization.AlwaysAuthorization
 ```
 
-###Set accuracy profil
+###Set accuracy profile
 
-WhereAmI provides 4 location profiles which influencing the accuracy of the location:
+WhereAmI provides 4 location profiles which affect the accuracy of the location:
 
 ```swift
-Default 	// Good mix between precision and location speed. 200m of accuracy
-Low 		// Low precision, fast location speed 2000m of accuracy	
-Medium		// Medium precision. 500m of accuracy
-High		// High precision, the location update can take several time to obtain data for the desired accuracy 10m accuracy
+Default 	// Good mix between precision and location speed with an accuracy of ~200m
+Low 		// Low precision and fast location speed with an accuracy of ~2000m	
+Medium		// Medium precision and an accuracy of ~500m
+High		// High precision and low location speed with an accuracy of ~10m
 ```
 
-These profiles are basic for the moment but they will evolve in future release.
+These profiles are basic for the moment but they will evolve in future releases.
 
 ###Get current location
  
-The location request is executed once by default. If you want a continuous updates of the location set the `continuousUpdate` at true.
+The location request is executed once by default. If you want a continuous update of the location set the `continuousUpdate` to true.
 
 ```swift
 //If you want continuous update
@@ -69,7 +69,7 @@ WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
     }, locationRefusedHandler: {(locationIsAuthorized) -> Void in
                 
         if (!locationIsAuthorized) {
-            //The location authorization is refused
+            //The location authorization has been refused
         }
 });
 ```
@@ -85,13 +85,13 @@ WhereAmI.sharedInstance.whatIsThisPlace({ (placemark) -> Void in
     }, locationRefusedHandler: {(locationIsAuthorized) -> Void in
                 
         if (!locationIsAuthorized) {
-            //The location authorization is refused
+            //The location authorization has been refused
         }
 });
 ```
 ##Example project
 
-More examples are available in the demo project.
+More examples are available in the `Example` folder.
 
 ##Issues & Contributions
 

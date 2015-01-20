@@ -103,7 +103,7 @@ class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Check if the location authorization has been asked
     
-        :returns: return false if the authorization is not determined, otherwise true
+        :returns: return false if the authorization has not been asked, otherwise true
     */
     class func userHasBeenPromptedForLocationUse() -> Bool {
         
