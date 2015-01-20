@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Where_Am_I" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="get-yG-sRO">
+                                <rect key="frame" x="16" y="28" width="568" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6tt-mB-aHr"/>
+                                </constraints>
+                                <state key="normal" title="Where Am I ?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6tt-mB-aHr"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6tt-mB-aHr"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="WhereAmITap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wrv-oH-OQ1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvC-rp-Qr8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="lB9-3q-egq"/>
+                                </constraints>
+                                <state key="normal" title="What is this place ?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="lB9-3q-egq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="lB9-3q-egq"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="WhatIsThisPlaceTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FjT-OD-7V0"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-4U-1aX">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BvC-rp-Qr8" firstAttribute="top" secondItem="get-yG-sRO" secondAttribute="bottom" constant="8" id="1N2-39-Kgf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BvC-rp-Qr8" secondAttribute="trailing" constant="8" id="7am-zy-7af"/>
+                            <constraint firstItem="6AV-4U-1aX" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="7xV-wO-q64"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="get-yG-sRO" secondAttribute="trailing" constant="8" id="Cka-CN-PvI"/>
+                            <constraint firstItem="BvC-rp-Qr8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="N8k-mv-rNT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6AV-4U-1aX" secondAttribute="bottom" constant="8" id="OLe-ds-6Dw"/>
+                            <constraint firstItem="6AV-4U-1aX" firstAttribute="top" secondItem="BvC-rp-Qr8" secondAttribute="bottom" constant="8" id="gH9-SW-Prm"/>
+                            <constraint firstItem="6AV-4U-1aX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="hcH-Lt-KW1">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="get-yG-sRO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="ihy-Tr-Eum"/>
+                            <constraint firstItem="get-yG-sRO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="mbd-zh-vSi"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="BvC-rp-Qr8"/>
+                                <exclude reference="6AV-4U-1aX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Cka-CN-PvI"/>
+                                <exclude reference="ihy-Tr-Eum"/>
+                                <exclude reference="mbd-zh-vSi"/>
+                                <exclude reference="1N2-39-Kgf"/>
+                                <exclude reference="7am-zy-7af"/>
+                                <exclude reference="N8k-mv-rNT"/>
+                                <exclude reference="7xV-wO-q64"/>
+                                <exclude reference="gH9-SW-Prm"/>
+                                <exclude reference="hcH-Lt-KW1"/>
+                                <exclude reference="OLe-ds-6Dw"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="BvC-rp-Qr8"/>
+                                <include reference="6AV-4U-1aX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Cka-CN-PvI"/>
+                                <include reference="ihy-Tr-Eum"/>
+                                <include reference="mbd-zh-vSi"/>
+                                <include reference="1N2-39-Kgf"/>
+                                <include reference="7am-zy-7af"/>
+                                <include reference="N8k-mv-rNT"/>
+                                <include reference="7xV-wO-q64"/>
+                                <include reference="gH9-SW-Prm"/>
+                                <include reference="hcH-Lt-KW1"/>
+                                <include reference="OLe-ds-6Dw"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="6AV-4U-1aX" id="Vvc-oj-dMA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="375"/>
+        </scene>
+    </scenes>
+</document>
