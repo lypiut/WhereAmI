@@ -66,12 +66,10 @@ WhereAmI.sharedInstance.continuousUpdate = true;
 //Request the current location
 WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
             
-    //Use the location data        
-    }, locationRefusedHandler: {(locationIsAuthorized) -> Void in
+        //Use the location data        
+    }, locationRefusedHandler: {() -> Void in
                 
-        if (!locationIsAuthorized) {
-            //The location authorization has been refused
-        }
+        //The location authorization has been refused
 });
 ```
 
@@ -85,11 +83,9 @@ WhereAmI.sharedInstance.whatIsThisPlace({ (placemark) -> Void in
     	if (placemark != nil) {
         	//Do your stuff
     	} 
-    }, locationRefusedHandler: {(locationIsAuthorized) -> Void in
+    }, locationRefusedHandler: {() -> Void in
                 
-        if (!locationIsAuthorized) {
-            //The location authorization has been refused
-        }
+        //The location authorization has been refused
 });
 ```
 ##Example project

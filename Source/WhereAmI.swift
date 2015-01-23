@@ -53,6 +53,7 @@ public enum WAILocationProfil : Int {
 public typealias WAIAuthorizationResult = (locationIsAuthorized : Bool) -> Void;
 public typealias WAILocationUpdate = (location : CLLocation) -> Void;
 public typealias WAIReversGeocodedLocationResult = (placemark : CLPlacemark!) -> Void;
+public typealias WAILocationAuthorizationRefused = () -> Void;
 
 // MARK: - Class Implementation
 
@@ -149,14 +150,14 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         :param: locationHandler        The closure return the latest valid user's positon
         :param: locationRefusedHandler When the user refuse location, this closure is called.
     */
-    public func whereAmI(locationHandler : WAILocationUpdate, locationRefusedHandler : WAIAuthorizationResult) {
+    public func whereAmI(locationHandler : WAILocationUpdate, locationRefusedHandler : WAILocationAuthorizationRefused) {
         
         self.askLocationAuthorization({ [unowned self] (locationIsAuthorized) -> Void in
             
             if (locationIsAuthorized) {
                 self.startUpdatingLocation(locationHandler);
             } else {
-                locationRefusedHandler(locationIsAuthorized: locationIsAuthorized);
+                locationRefusedHandler();
             }
         });
     }
@@ -167,7 +168,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         :param: geocoderHandler        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
         :param: locationRefusedHandler When the user refuse location, this closure is called.
     */
-    public func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult, locationRefusedHandler : WAIAuthorizationResult) {
+    public func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult, locationRefusedHandler : WAILocationAuthorizationRefused) {
         
         self.whereAmI({ (location) -> Void in
             

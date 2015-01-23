@@ -29,13 +29,10 @@ class ViewController: UIViewController {
         
         WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
             
-            self.textView.text = location.description;
+                self.textView.text = location.description;
             
-            }, locationRefusedHandler: { [unowned self] (locationIsAuthorized) -> Void in
-                
-                if (!locationIsAuthorized) {
-                    self.showAlertView();
-                }
+            }, locationRefusedHandler: { [unowned self] () -> Void in
+                self.showAlertView();
         });
         
     }
@@ -49,11 +46,8 @@ class ViewController: UIViewController {
                 self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)";
             }
             
-            }, locationRefusedHandler: {[unowned self] (locationIsAuthorized) -> Void in
-                
-                if (!locationIsAuthorized) {
-                    self.showAlertView();
-                }
+            }, locationRefusedHandler: {[unowned self] () -> Void in
+                self.showAlertView();
         });
         
     }
