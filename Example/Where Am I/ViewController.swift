@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         
         self.textView.text = nil;
         
-        WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
+        WhereAmI.sharedInstance.whereAmI({ [unowned self] (location) -> Void in
             
                 self.textView.text = location.description;
             
@@ -40,13 +40,13 @@ class ViewController: UIViewController {
         
         self.textView.text = nil;
         
-        WhereAmI.sharedInstance.whatIsThisPlace({ (placemark) -> Void in
+        WhereAmI.sharedInstance.whatIsThisPlace({ [unowned self] (placemark) -> Void in
             
             if (placemark != nil) {
                 self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)";
             }
             
-            }, locationRefusedHandler: {[unowned self] () -> Void in
+            }, locationRefusedHandler: { [unowned self] () -> Void in
                 self.showAlertView();
         });
         
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 
         if (!WhereAmI.userHasBeenPromptedForLocationUse()) {
             
-            WhereAmI.sharedInstance.askLocationAuthorization({ [unowned self](locationIsAuthorized) -> Void in
+            WhereAmI.sharedInstance.askLocationAuthorization({ [unowned self] (locationIsAuthorized) -> Void in
                
                 if (!locationIsAuthorized) {
                     self.showAlertView();
@@ -76,8 +76,9 @@ class ViewController: UIViewController {
     private func startLocationUpdate() {
         
         WhereAmI.sharedInstance.continuousUpdate = true;
-        WhereAmI.sharedInstance.startUpdatingLocation({ (location) -> Void in
+        WhereAmI.sharedInstance.startUpdatingLocation({ [unowned self]  (location) -> Void in
             
+            self.textView.text = location.description;
         });
     }
     

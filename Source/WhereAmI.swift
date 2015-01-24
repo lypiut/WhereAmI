@@ -177,7 +177,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
             geocoder.reverseGeocodeLocation(location, completionHandler: { (placesmark, error) -> Void in
                 
                 if (error != nil) {
-                    println("Reverse geodcode fail: \(error.localizedDescription)");
+                    println("Reverse geocode fail: \(error.localizedDescription)");
                     return;
                 }
                 
@@ -281,7 +281,6 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
                 
                 if (!self.continuousUpdate) {
                     self.stopUpdatingLocation();
-                    self.locationUpdateHandler = nil;
                 }
             }
         }

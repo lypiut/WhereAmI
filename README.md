@@ -20,7 +20,7 @@ WhereAmI is available through [CocoaPods](http://cocoapods.org).
 To install WhereAmI, add the following line to your Podfile:
 
 ```
-pod 'WhereAmI', '~> 1.0'
+pod 'WhereAmI', '~> 1.1'
 ```
 
 ###Manual Installation
