@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: './Example/Where Am I.xcodeproj'
 xcode_scheme: 'Where Am I'
-
+xcode_sdk: iphonesimulator
