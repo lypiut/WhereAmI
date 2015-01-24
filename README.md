@@ -1,5 +1,9 @@
 # WhereAmI
 
+[![Version](http://cocoapod-badges.herokuapp.com/v/WhereAmI/badge.png)](http://cocoadocs.org/docsets/WhereAmI)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/WhereAmI/badge.png)](http://cocoadocs.org/docsets/WhereAmI)
+[![Build Status](https://travis-ci.org/lypiut/WhereAmI.svg?branch=master)](https://travis-ci.org/lypiut/WhereAmI)
+
 An easy to use Core Location library in Swift with few lines of code you can obtain:
 - the current location
 - the current address
@@ -67,7 +71,7 @@ WhereAmI.sharedInstance.continuousUpdate = true;
 WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
             
         //Use the location data        
-    }, locationRefusedHandler: {() -> Void in
+    }, locationRefusedHandler: {() -> Void inœ
                 
         //The location authorization has been refused
 });
