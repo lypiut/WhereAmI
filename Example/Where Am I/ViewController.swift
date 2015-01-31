@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -26,10 +26,11 @@ class ViewController: UIViewController {
     @IBAction func WhereAmITap(sender: AnyObject) {
         
         self.textView.text = nil;
-        
-        WhereAmI.sharedInstance.whereAmI({ [unowned self] (location) -> Void in
+    
+        WhereAmI.whereAmI({ [unowned self] (location) -> Void in
             
-                self.textView.text = location.description;
+            var textUpdated = self.textView.text;
+            self.textView.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy]) + "\n" + textUpdated
             
             }, locationRefusedHandler: { [unowned self] () -> Void in
                 self.showAlertView();
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
         
         self.textView.text = nil;
         
-        WhereAmI.sharedInstance.whatIsThisPlace({ [unowned self] (placemark) -> Void in
+        WhereAmI.whatIsThisPlace({ [unowned self] (placemark) -> Void in
             
             if (placemark != nil) {
                 self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)";
@@ -53,11 +54,11 @@ class ViewController: UIViewController {
     }
     
     func fullControlWay() {
-
+        
         if (!WhereAmI.userHasBeenPromptedForLocationUse()) {
             
             WhereAmI.sharedInstance.askLocationAuthorization({ [unowned self] (locationIsAuthorized) -> Void in
-               
+                
                 if (!locationIsAuthorized) {
                     self.showAlertView();
                 } else {
@@ -85,9 +86,9 @@ class ViewController: UIViewController {
     func showAlertView() {
         
         var alertView = UIAlertView(title: "Location Refused",
-                                    message: "The app is not allowed to retreive your current location",
-                                    delegate: nil,
-                                    cancelButtonTitle: "OK");
+            message: "The app is not allowed to retreive your current location",
+            delegate: nil,
+            cancelButtonTitle: "OK");
         
         alertView.show();
     }
