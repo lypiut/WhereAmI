@@ -71,7 +71,7 @@ WhereAmI.sharedInstance.continuousUpdate = true;
 WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
             
         //Use the location data        
-    }, locationRefusedHandler: {() -> Void inœ
+    }, locationRefusedHandler: {() -> Void in
                 
         //The location authorization has been refused
 });
