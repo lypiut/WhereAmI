@@ -134,20 +134,20 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     }
     
     /**
-    Out of the box class method, the easiest way to obtain the user's GPS coordinate
+        Out of the box class method, the easiest way to obtain the user's GPS coordinate
     
-    :param: locationHandler        The closure return the latest valid user's positon
-    :param: locationRefusedHandler When the user refuse location, this closure is called.
+        :param: locationHandler        The closure return the latest valid user's positon
+        :param: locationRefusedHandler When the user refuse location, this closure is called.
     */
     public class func whereAmI(locationHandler : WAILocationUpdate, locationRefusedHandler : WAILocationAuthorizationRefused) {
         WhereAmI.sharedInstance.whereAmI(locationHandler, locationRefusedHandler : locationRefusedHandler)
     }
     
     /**
-    Out of the box class method, the easiest way to obtain the user's location (street, city, etc.)
+        Out of the box class method, the easiest way to obtain the user's location (street, city, etc.)
     
-    :param: geocoderHandler        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
-    :param: locationRefusedHandler When the user refuse location, this closure is called.
+        :param: geocoderHandler        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
+        :param: locationRefusedHandler When the user refuse location, this closure is called.
     */
     public class func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult, locationRefusedHandler : WAILocationAuthorizationRefused) {
         WhereAmI.sharedInstance.whatIsThisPlace(geocoderHandler, locationRefusedHandler : locationRefusedHandler);
@@ -196,14 +196,19 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
             
             geocoder.reverseGeocodeLocation(location, completionHandler: { (placesmark, error) -> Void in
                 
-                if (error != nil) {
-                    println("Reverse geocode fail: \(error.localizedDescription)")
+                if let anError = error {
+                    println("Reverse geocode fail: \(anError.localizedDescription)")
                     return
                 }
                 
-                if (placesmark != nil && placesmark.count > 0) {
-                    var placemark = placesmark.first as CLPlacemark
-                    geocoderHandler(placemark: placemark)
+                if let aPlacesmark = placesmark {
+                    
+                    if aPlacesmark.count > 0 {
+                        var placemark = placesmark.first as CLPlacemark
+                        geocoderHandler(placemark: placemark)
+                    } else {
+                        geocoderHandler(placemark: nil)
+                    }
                 } else {
                     geocoderHandler(placemark: nil)
                 }
@@ -272,17 +277,14 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
     public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-        if (self.authorizationHandler != nil) {
-            
             if (status == CLAuthorizationStatus.Authorized || status == CLAuthorizationStatus.AuthorizedWhenInUse) {
-                self.authorizationHandler!(locationIsAuthorized: true)
+                self.authorizationHandler?(locationIsAuthorized: true)
                 self.authorizationHandler = nil
             }
             else if (status != CLAuthorizationStatus.NotDetermined){
-                self.authorizationHandler!(locationIsAuthorized: false)
+                self.authorizationHandler?(locationIsAuthorized: false)
                 self.authorizationHandler = nil
             }
-        }
     }
     
     public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -295,9 +297,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
             //Check if the location is valid for the accuracy profil selected
             if (locationAge < self.locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < self.horizontalAccuracy) {
                 
-                if (self.locationUpdateHandler != nil) {
-                    self.locationUpdateHandler!(location : latestPosition)
-                }
+                self.locationUpdateHandler?(location : latestPosition)
                 
                 if (!self.continuousUpdate) {
                     self.stopUpdatingLocation()

@@ -43,8 +43,8 @@ class ViewController: UIViewController {
         
         WhereAmI.whatIsThisPlace({ [unowned self] (placemark) -> Void in
             
-            if (placemark != nil) {
-                self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)";
+            if let aPlacemark = placemark {
+                self.textView.text = "\(aPlacemark.name) \(aPlacemark.locality) \(aPlacemark.country)";
             }
             
             }, locationRefusedHandler: { [unowned self] () -> Void in
