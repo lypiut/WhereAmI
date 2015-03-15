@@ -254,7 +254,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         
         if (self.authorizationHandler != nil) {
             
-            if (status == CLAuthorizationStatus.Authorized || status == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            if (status == CLAuthorizationStatus.AuthorizedAlways || status == CLAuthorizationStatus.AuthorizedWhenInUse) {
                 self.authorizationHandler!(locationIsAuthorized: true);
                 self.authorizationHandler = nil;
             }
