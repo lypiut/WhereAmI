@@ -2,7 +2,7 @@
 
 [![Version](http://cocoapod-badges.herokuapp.com/v/WhereAmI/badge.png)](http://cocoadocs.org/docsets/WhereAmI)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/WhereAmI/badge.png)](http://cocoadocs.org/docsets/WhereAmI)
-[![Build Status](https://travis-ci.org/lypiut/WhereAmI.svg?branch=master)](https://travis-ci.org/lypiut/WhereAmI)
+<!--[![Build Status](https://travis-ci.org/lypiut/WhereAmI.svg?branch=master)](https://travis-ci.org/lypiut/WhereAmI)-->
 
 An easy to use Core Location library in Swift with few lines of code you can obtain:
 - the current location
@@ -11,17 +11,22 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 
 ##Requirement
 
-- Xcode 6
+- Xcode 6.2
 - iOS 7.0+
 
 ## Installation
 
-###Cocoa Pods
+###CocoaPods
 
 WhereAmI is available through [CocoaPods](http://cocoapods.org).  
-(WARNING: Swift support for cocoapods is starting since 0.36 beta 1)
 
-To install WhereAmI, add the following line to your Podfile:
+CocoaPods 0.36 adds supports for Swift. You can install it with the following command:
+
+```
+$ gem install cocoapods
+```
+
+To integrate WhereAmI, add the following line to your Podfile:
 
 ```
 pod 'WhereAmI', '~> 1.1'
@@ -68,7 +73,7 @@ The location request is executed once by default. If you want a continuous updat
 WhereAmI.sharedInstance.continuousUpdate = true;
 
 //Request the current location
-WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
+WhereAmI.whereAmI({ (location) -> Void in
             
         //Use the location data        
     }, locationRefusedHandler: {() -> Void in
@@ -82,7 +87,7 @@ WhereAmI.sharedInstance.whereAmI({ (location) -> Void in
 You have the possibility to retrieve informations about the current location (street, city, etc.) with the `whatIsThisPlace` method.
 
 ```swift
-WhereAmI.sharedInstance.whatIsThisPlace({ (placemark) -> Void in
+WhereAmI.whatIsThisPlace({ (placemark) -> Void in
             
     	if (placemark != nil) {
         	//Do your stuff

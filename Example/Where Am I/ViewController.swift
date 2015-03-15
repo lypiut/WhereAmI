@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     @IBAction func WhereAmITap(sender: AnyObject) {
         
         self.textView.text = nil;
-    
+        
         WhereAmI.whereAmI({ [unowned self] (location) -> Void in
             
             var textUpdated = self.textView.text;

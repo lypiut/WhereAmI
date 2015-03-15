@@ -64,7 +64,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     public let locationValidity : NSTimeInterval = 15.0
     public var horizontalAccuracy : CLLocationDistance = 500.0
     public var continuousUpdate : Bool = false
-    public var locationAuthorization : WAILocationAuthorization = WAILocationAuthorization.InUseAuthorization
+    public var locationAuthorization : WAILocationAuthorization = .InUseAuthorization
     public var locationPrecision : WAILocationProfil {
         didSet {
             switch locationPrecision {
@@ -108,7 +108,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     */
     public class func userHasBeenPromptedForLocationUse() -> Bool {
         
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined) {
+        if (CLLocationManager.authorizationStatus() == .NotDetermined) {
             return false
         }
         
@@ -122,7 +122,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     */
     public class func locationIsAuthorized() -> Bool {
         
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Restricted) {
+        if (CLLocationManager.authorizationStatus() == .Denied || CLLocationManager.authorizationStatus() == .Restricted) {
             return false
         }
         
@@ -204,8 +204,11 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
                 if let aPlacesmark = placesmark {
                     
                     if aPlacesmark.count > 0 {
-                        var placemark = placesmark.first as CLPlacemark
-                        geocoderHandler(placemark: placemark)
+                        
+                        if let placemark = aPlacesmark.first as? CLPlacemark {
+                            geocoderHandler(placemark: placemark)
+                        }
+                        
                     } else {
                         geocoderHandler(placemark: nil)
                     }
@@ -277,11 +280,11 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
     public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-            if (status == CLAuthorizationStatus.AuthorizedAlways || status == CLAuthorizationStatus.AuthorizedWhenInUse) {
-                self.authorizationHandler!(locationIsAuthorized: true);
+            if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
+                self.authorizationHandler?(locationIsAuthorized: true);
                 self.authorizationHandler = nil;
             }
-            else if (status != CLAuthorizationStatus.NotDetermined){
+            else if (status != .NotDetermined){
                 self.authorizationHandler?(locationIsAuthorized: false)
                 self.authorizationHandler = nil
             }
@@ -289,18 +292,23 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
     public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         
-        if (locations.count > 0) {
+        if let locationsArray = locations {
             
-            let latestPosition = locations.first as CLLocation
-            let locationAge = -latestPosition.timestamp.timeIntervalSinceNow
-            
-            //Check if the location is valid for the accuracy profil selected
-            if (locationAge < self.locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < self.horizontalAccuracy) {
+            if locationsArray.count > 0 {
                 
-                self.locationUpdateHandler?(location : latestPosition)
-                
-                if (!self.continuousUpdate) {
-                    self.stopUpdatingLocation()
+                if let latestPosition = locationsArray.first as? CLLocation {
+                    
+                    let locationAge = -latestPosition.timestamp.timeIntervalSinceNow
+                    
+                    //Check if the location is valid for the accuracy profil selected
+                    if (locationAge < self.locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < self.horizontalAccuracy) {
+                        
+                        self.locationUpdateHandler?(location : latestPosition)
+                        
+                        if (!self.continuousUpdate) {
+                            self.stopUpdatingLocation()
+                        }
+                    }
                 }
             }
         }
