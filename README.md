@@ -29,7 +29,7 @@ $ gem install cocoapods
 To integrate WhereAmI, add the following line to your Podfile:
 
 ```
-pod 'WhereAmI', '~> 1.1'
+pod 'WhereAmI', '~> 1.2'
 ```
 
 ###Manual Installation
