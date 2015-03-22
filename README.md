@@ -89,11 +89,13 @@ You have the possibility to retrieve informations about the current location (st
 ```swift
 WhereAmI.whatIsThisPlace({ (placemark) -> Void in
             
-    	if (placemark != nil) {
-        	//Do your stuff
+    	if let aPlacemark = placemark {
+        	   //Do your stuff
     	} 
+    	else {
+    	   //An error occured
+    	}
     }, locationRefusedHandler: {() -> Void in
-                
         //The location authorization has been refused
 });
 ```
