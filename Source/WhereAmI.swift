@@ -179,7 +179,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
             } else {
                 locationRefusedHandler()
             }
-        });
+            });
     }
     
     /**
@@ -201,16 +201,10 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
                     return
                 }
                 
-                if let aPlacesmark = placesmark {
+                if let aPlacesmark = placesmark where aPlacesmark.count > 0 {
                     
-                    if aPlacesmark.count > 0 {
-                        
-                        if let placemark = aPlacesmark.first as? CLPlacemark {
-                            geocoderHandler(placemark: placemark)
-                        }
-                        
-                    } else {
-                        geocoderHandler(placemark: nil)
+                    if let placemark = aPlacesmark.first as? CLPlacemark {
+                        geocoderHandler(placemark: placemark)
                     }
                 } else {
                     geocoderHandler(placemark: nil)
@@ -280,34 +274,31 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
     public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-            if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
-                self.authorizationHandler?(locationIsAuthorized: true);
-                self.authorizationHandler = nil;
-            }
-            else if (status != .NotDetermined){
-                self.authorizationHandler?(locationIsAuthorized: false)
-                self.authorizationHandler = nil
-            }
+        if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
+            self.authorizationHandler?(locationIsAuthorized: true);
+            self.authorizationHandler = nil;
+        }
+        else if (status != .NotDetermined){
+            self.authorizationHandler?(locationIsAuthorized: false)
+            self.authorizationHandler = nil
+        }
     }
     
     public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         
-        if let locationsArray = locations {
+        if let locationsArray = locations where locationsArray.count > 0 {
             
-            if locationsArray.count > 0 {
+            if let latestPosition = locationsArray.first as? CLLocation {
                 
-                if let latestPosition = locationsArray.first as? CLLocation {
+                let locationAge = -latestPosition.timestamp.timeIntervalSinceNow
+                
+                //Check if the location is valid for the accuracy profil selected
+                if (locationAge < self.locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < self.horizontalAccuracy) {
                     
-                    let locationAge = -latestPosition.timestamp.timeIntervalSinceNow
+                    self.locationUpdateHandler?(location : latestPosition)
                     
-                    //Check if the location is valid for the accuracy profil selected
-                    if (locationAge < self.locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < self.horizontalAccuracy) {
-                        
-                        self.locationUpdateHandler?(location : latestPosition)
-                        
-                        if (!self.continuousUpdate) {
-                            self.stopUpdatingLocation()
-                        }
+                    if (!self.continuousUpdate) {
+                        self.stopUpdatingLocation()
                     }
                 }
             }
