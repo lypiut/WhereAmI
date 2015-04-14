@@ -75,15 +75,15 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
             case .Medium:
                 self.locationManager.distanceFilter = 100.0
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-                self.horizontalAccuracy = 500.0
+                self.horizontalAccuracy = 1000.0
             case .High:
                 self.locationManager.distanceFilter = 10.0
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-                self.horizontalAccuracy = 50.0
+                self.horizontalAccuracy = 200.0
             case .Default:
                 self.locationManager.distanceFilter = 50.0
                 self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                self.horizontalAccuracy = 200.0
+                self.horizontalAccuracy = 500.0
             }
         }
     };
