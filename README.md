@@ -11,7 +11,7 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 
 ##Requirement
 
-- Xcode 6.2
+- Xcode 6.3
 - iOS 7.0+
 
 ## Installation
