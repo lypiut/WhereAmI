@@ -25,8 +25,8 @@
 
 /* Begin PBXFileReference section */
 		7A36501A1AECED5A001F98A8 /* WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A36501E1AECED5A001F98A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Source/Info.plist; sourceTree = "<group>"; };
-		7A36501F1AECED5A001F98A8 /* WhereAmI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WhereAmI.h; path = ../Source/WhereAmI.h; sourceTree = "<group>"; };
+		7A36501E1AECED5A001F98A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
+		7A36501F1AECED5A001F98A8 /* WhereAmI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WhereAmI.h; path = Source/WhereAmI.h; sourceTree = "<group>"; };
 		7A3650251AECED5A001F98A8 /* WhereAmITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereAmITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A36502B1AECED5A001F98A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAmITests.swift; sourceTree = "<group>"; };
