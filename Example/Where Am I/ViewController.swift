@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WhereAmI
 
 class ViewController: UIViewController {
     
