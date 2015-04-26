@@ -27,14 +27,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7A9B01441A4979EA002F134A /* Where Am I.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where Am I.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A9B01441A4979EA002F134A /* Where Am I Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where Am I Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9B01481A4979EA002F134A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A9B01491A4979EA002F134A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A9B014B1A4979EA002F134A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A9B014E1A4979EA002F134A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A9B01501A4979EA002F134A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7A9B01531A4979EA002F134A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7A9B01591A4979EA002F134A /* Where Am ITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where Am ITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A9B01591A4979EA002F134A /* Where Am I DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where Am I DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9B015E1A4979EA002F134A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A9B015F1A4979EA002F134A /* Where_Am_ITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Where_Am_ITests.swift; sourceTree = "<group>"; };
 		7AED1AD01A52D7E400A6EBBD /* WhereAmI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhereAmI.swift; path = ../../Source/WhereAmI.swift; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 		7A9B01451A4979EA002F134A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A9B01441A4979EA002F134A /* Where Am I.app */,
-				7A9B01591A4979EA002F134A /* Where Am ITests.xctest */,
+				7A9B01441A4979EA002F134A /* Where Am I Demo.app */,
+				7A9B01591A4979EA002F134A /* Where Am I DemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7A9B01431A4979EA002F134A /* Where Am I */ = {
+		7A9B01431A4979EA002F134A /* Where Am I Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A9B01631A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am I" */;
+			buildConfigurationList = 7A9B01631A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am I Demo" */;
 			buildPhases = (
 				7A9B01401A4979EA002F134A /* Sources */,
 				7A9B01411A4979EA002F134A /* Frameworks */,
@@ -146,14 +146,14 @@
 			);
 			dependencies = (
 			);
-			name = "Where Am I";
+			name = "Where Am I Demo";
 			productName = "Where Am I";
-			productReference = 7A9B01441A4979EA002F134A /* Where Am I.app */;
+			productReference = 7A9B01441A4979EA002F134A /* Where Am I Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7A9B01581A4979EA002F134A /* Where Am ITests */ = {
+		7A9B01581A4979EA002F134A /* Where Am I DemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A9B01661A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am ITests" */;
+			buildConfigurationList = 7A9B01661A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am I DemoTests" */;
 			buildPhases = (
 				7A9B01551A4979EA002F134A /* Sources */,
 				7A9B01561A4979EA002F134A /* Frameworks */,
@@ -164,9 +164,9 @@
 			dependencies = (
 				7A9B015B1A4979EA002F134A /* PBXTargetDependency */,
 			);
-			name = "Where Am ITests";
+			name = "Where Am I DemoTests";
 			productName = "Where Am ITests";
-			productReference = 7A9B01591A4979EA002F134A /* Where Am ITests.xctest */;
+			productReference = 7A9B01591A4979EA002F134A /* Where Am I DemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -187,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7A9B013F1A4979EA002F134A /* Build configuration list for PBXProject "Where Am I" */;
+			buildConfigurationList = 7A9B013F1A4979EA002F134A /* Build configuration list for PBXProject "Where Am I Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -200,8 +200,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7A9B01431A4979EA002F134A /* Where Am I */,
-				7A9B01581A4979EA002F134A /* Where Am ITests */,
+				7A9B01431A4979EA002F134A /* Where Am I Demo */,
+				7A9B01581A4979EA002F134A /* Where Am I DemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,7 +250,7 @@
 /* Begin PBXTargetDependency section */
 		7A9B015B1A4979EA002F134A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7A9B01431A4979EA002F134A /* Where Am I */;
+			target = 7A9B01431A4979EA002F134A /* Where Am I Demo */;
 			targetProxy = 7A9B015A1A4979EA002F134A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -360,7 +360,7 @@
 				INFOPLIST_FILE = "Where Am I/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Where Am I Demo";
 			};
 			name = Debug;
 		};
@@ -372,7 +372,7 @@
 				INFOPLIST_FILE = "Where Am I/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Where Am I Demo";
 			};
 			name = Release;
 		};
@@ -390,7 +390,7 @@
 				);
 				INFOPLIST_FILE = "Where Am ITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Where Am I DemoTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Where Am I.app/Where Am I";
 			};
 			name = Debug;
@@ -405,7 +405,7 @@
 				);
 				INFOPLIST_FILE = "Where Am ITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Where Am I DemoTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Where Am I.app/Where Am I";
 			};
 			name = Release;
@@ -413,7 +413,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7A9B013F1A4979EA002F134A /* Build configuration list for PBXProject "Where Am I" */ = {
+		7A9B013F1A4979EA002F134A /* Build configuration list for PBXProject "Where Am I Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A9B01611A4979EA002F134A /* Debug */,
@@ -422,7 +422,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A9B01631A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am I" */ = {
+		7A9B01631A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am I Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A9B01641A4979EA002F134A /* Debug */,
@@ -431,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A9B01661A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am ITests" */ = {
+		7A9B01661A4979EA002F134A /* Build configuration list for PBXNativeTarget "Where Am I DemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A9B01671A4979EA002F134A /* Debug */,

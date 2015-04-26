@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A9B01431A4979EA002F134A"
-               BuildableName = "Where Am I.app"
-               BlueprintName = "Where Am I"
-               ReferencedContainer = "container:Where Am I.xcodeproj">
+               BuildableName = "Where Am I Demo.app"
+               BlueprintName = "Where Am I Demo"
+               ReferencedContainer = "container:Where Am I Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A9B01581A4979EA002F134A"
-               BuildableName = "Where Am ITests.xctest"
-               BlueprintName = "Where Am ITests"
-               ReferencedContainer = "container:Where Am I.xcodeproj">
+               BuildableName = "Where Am I DemoTests.xctest"
+               BlueprintName = "Where Am I DemoTests"
+               ReferencedContainer = "container:Where Am I Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A9B01581A4979EA002F134A"
-               BuildableName = "Where Am ITests.xctest"
-               BlueprintName = "Where Am ITests"
-               ReferencedContainer = "container:Where Am I.xcodeproj">
+               BuildableName = "Where Am I DemoTests.xctest"
+               BlueprintName = "Where Am I DemoTests"
+               ReferencedContainer = "container:Where Am I Demo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A9B01431A4979EA002F134A"
-            BuildableName = "Where Am I.app"
-            BlueprintName = "Where Am I"
-            ReferencedContainer = "container:Where Am I.xcodeproj">
+            BuildableName = "Where Am I Demo.app"
+            BlueprintName = "Where Am I Demo"
+            ReferencedContainer = "container:Where Am I Demo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,13 +72,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A9B01431A4979EA002F134A"
-            BuildableName = "Where Am I.app"
-            BlueprintName = "Where Am I"
-            ReferencedContainer = "container:Where Am I.xcodeproj">
+            BuildableName = "Where Am I Demo.app"
+            BlueprintName = "Where Am I Demo"
+            ReferencedContainer = "container:Where Am I Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -90,13 +91,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A9B01431A4979EA002F134A"
-            BuildableName = "Where Am I.app"
-            BlueprintName = "Where Am I"
-            ReferencedContainer = "container:Where Am I.xcodeproj">
+            BuildableName = "Where Am I Demo.app"
+            BlueprintName = "Where Am I Demo"
+            ReferencedContainer = "container:Where Am I Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
