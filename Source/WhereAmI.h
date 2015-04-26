@@ -22,14 +22,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-//! Project version number for WhereAmI.
 FOUNDATION_EXPORT double WhereAmIVersionNumber;
-
-//! Project version string for WhereAmI.
 FOUNDATION_EXPORT const unsigned char WhereAmIVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <WhereAmI/PublicHeader.h>
 
 

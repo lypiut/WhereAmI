@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A3650201AECED5A001F98A8 /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A36501F1AECED5A001F98A8 /* WhereAmI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A3650261AECED5A001F98A8 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A36501A1AECED5A001F98A8 /* WhereAmI.framework */; };
 		7A36502D1AECED5A001F98A8 /* WhereAmITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */; };
 		7A3650371AECEE0B001F98A8 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
@@ -113,7 +112,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A3650201AECED5A001F98A8 /* WhereAmI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +327,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -345,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
