@@ -59,6 +59,9 @@ public typealias WAILocationAuthorizationRefused = () -> Void
 
 public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
+    // Singleton
+    public static let sharedInstance = WhereAmI()
+    
     public let locationManager = CLLocationManager()
     /// Max location validity in seconds
     public let locationValidity : NSTimeInterval = 15.0
@@ -92,14 +95,6 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     var locationUpdateHandler : WAILocationUpdate?;
     
     // MARK: - Class methods
-    
-    public class var sharedInstance: WhereAmI {
-        struct Singleton {
-            static let instance : WhereAmI = WhereAmI()
-        }
-        
-        return Singleton.instance;
-    }
     
     /**
         Check if the location authorization has been asked
