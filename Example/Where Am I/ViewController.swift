@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         WhereAmI.whereAmI({ [unowned self] (location) -> Void in
             
-            var textUpdated = self.textView.text;
+            let textUpdated = self.textView.text;
             self.textView.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy]) + "\n" + textUpdated
             
             }, locationRefusedHandler: { [unowned self] () -> Void in
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
     
     func showAlertView() {
         
-        var alertView = UIAlertView(title: "Location Refused",
+        let alertView = UIAlertView(title: "Location Refused",
             message: "The app is not allowed to retreive your current location",
             delegate: nil,
             cancelButtonTitle: "OK");

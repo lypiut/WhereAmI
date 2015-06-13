@@ -99,7 +99,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Check if the location authorization has been asked
     
-        :returns: return false if the authorization has not been asked, otherwise true
+        - returns: return false if the authorization has not been asked, otherwise true
     */
     public class func userHasBeenPromptedForLocationUse() -> Bool {
         
@@ -113,7 +113,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Check if the localization is authorized
     
-        :returns: false if the user's location was denied, otherwise true
+        - returns: false if the user's location was denied, otherwise true
     */
     public class func locationIsAuthorized() -> Bool {
         
@@ -131,8 +131,8 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Out of the box class method, the easiest way to obtain the user's GPS coordinate
     
-        :param: locationHandler        The closure return the latest valid user's positon
-        :param: locationRefusedHandler When the user refuse location, this closure is called.
+        - parameter locationHandler:        The closure return the latest valid user's positon
+        - parameter locationRefusedHandler: When the user refuse location, this closure is called.
     */
     public class func whereAmI(locationHandler : WAILocationUpdate, locationRefusedHandler : WAILocationAuthorizationRefused) {
         WhereAmI.sharedInstance.whereAmI(locationHandler, locationRefusedHandler : locationRefusedHandler)
@@ -141,8 +141,8 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Out of the box class method, the easiest way to obtain the user's location (street, city, etc.)
     
-        :param: geocoderHandler        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
-        :param: locationRefusedHandler When the user refuse location, this closure is called.
+        - parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
+        - parameter locationRefusedHandler: When the user refuse location, this closure is called.
     */
     public class func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult, locationRefusedHandler : WAILocationAuthorizationRefused) {
         WhereAmI.sharedInstance.whatIsThisPlace(geocoderHandler, locationRefusedHandler : locationRefusedHandler);
@@ -162,8 +162,8 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         All in one method, the easiest way to obtain the user's GPS coordinate
     
-        :param: locationHandler        The closure return the latest valid user's positon
-        :param: locationRefusedHandler When the user refuse location, this closure is called.
+        - parameter locationHandler:        The closure return the latest valid user's positon
+        - parameter locationRefusedHandler: When the user refuse location, this closure is called.
     */
     public func whereAmI(locationHandler : WAILocationUpdate, locationRefusedHandler : WAILocationAuthorizationRefused) {
         
@@ -180,8 +180,8 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         All in one method, the easiest way to obtain the user's location (street, city, etc.)
     
-        :param: geocoderHandler        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
-        :param: locationRefusedHandler When the user refuse location, this closure is called.
+        - parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
+        - parameter locationRefusedHandler: When the user refuse location, this closure is called.
     */
     public func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult, locationRefusedHandler : WAILocationAuthorizationRefused) {
         
@@ -192,13 +192,13 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
             geocoder.reverseGeocodeLocation(location, completionHandler: { (placesmark, error) -> Void in
                 
                 if let anError = error {
-                    println("Reverse geocode fail: \(anError.localizedDescription)")
+                    print("Reverse geocode fail: \(anError.localizedDescription)")
                     return
                 }
                 
                 if let aPlacesmark = placesmark where aPlacesmark.count > 0 {
                     
-                    if let placemark = aPlacesmark.first as? CLPlacemark {
+                    if let placemark = aPlacesmark.first {
                         geocoderHandler(placemark: placemark)
                     }
                 } else {
@@ -213,7 +213,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Start the location update. If the continuousUpdate is at true the locationHandler will be used for each postion update.
     
-        :param: locationHandler The closure returns an updated location conforms to the accuracy filters
+        - parameter locationHandler: The closure returns an updated location conforms to the accuracy filters
     */
     public func startUpdatingLocation(locationHandler : WAILocationUpdate?) {
         
@@ -233,7 +233,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     /**
         Request location authorization
     
-        :param: resultHandler The closure return if the authorization is granted or not
+        - parameter resultHandler: The closure return if the authorization is granted or not
     */
     public func askLocationAuthorization(resultHandler : WAIAuthorizationResult) {
         
@@ -267,7 +267,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
     // MARK: - CLLocationManager Delegate
     
-    public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
         if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
             self.authorizationHandler?(locationIsAuthorized: true);
@@ -279,11 +279,11 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
         
-        if let locationsArray = locations where locationsArray.count > 0 {
+        if locations.count > 0 {
             
-            if let latestPosition = locationsArray.first as? CLLocation {
+            if let latestPosition = locations.first as? CLLocation {
                 
                 let locationAge = -latestPosition.timestamp.timeIntervalSinceNow
                 

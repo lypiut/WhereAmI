@@ -1,5 +1,9 @@
 language: objective-c
 osx_image: beta-xcode6.3
+# whitelist
+branches:
+  except:
+    - swift-2.0
 before_install:
 - gem install xcpretty -N
 script:
