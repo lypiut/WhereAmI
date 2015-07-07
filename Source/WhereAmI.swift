@@ -279,11 +279,11 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if locations.count > 0 {
             
-            if let latestPosition = locations.first as? CLLocation {
+            if let latestPosition = locations.first {
                 
                 let locationAge = -latestPosition.timestamp.timeIntervalSinceNow
                 
