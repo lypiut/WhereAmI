@@ -271,6 +271,12 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         }
     }
     
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        #if DEBUG
+            print("[WHERE AM I]locationManager fail: \(error.localizedDescription)")
+        #endif
+    }
+    
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         //Get the latest location data
