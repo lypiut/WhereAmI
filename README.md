@@ -95,7 +95,7 @@ The location request is executed once by default. If you want a continuous updat
 WhereAmI.sharedInstance.continuousUpdate = true;
 
 //Request the current location
-WhereAmI.whereAmI({ (location) -> Void in
+whereAmI({ (location) -> Void in
             
         //Use the location data        
     }, locationRefusedHandler: {() -> Void in
@@ -109,7 +109,7 @@ WhereAmI.whereAmI({ (location) -> Void in
 You have the possibility to retrieve informations about the current location (street, city, etc.) with the `whatIsThisPlace` method.
 
 ```swift
-WhereAmI.whatIsThisPlace({ (placemark) -> Void in
+whatIsThisPlace({ (placemark) -> Void in
             
     	if let aPlacemark = placemark {
         	   //Do your stuff
