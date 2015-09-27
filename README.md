@@ -12,7 +12,7 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 
 ##Requirement
 
-- Xcode 6.3
+- Xcode 7.0
 - iOS 7.0+
 
 ## Installation
@@ -21,7 +21,7 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 
 WhereAmI is available through [CocoaPods](http://cocoapods.org).  
 
-CocoaPods 0.36 adds supports for Swift. You can install it with the following command:
+You can install it with the following command:
 
 ```
 $ gem install cocoapods
@@ -34,7 +34,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'WhereAmI', '~> 1.2'
+pod 'WhereAmI', '~> 2.0'
 ```
 
 ### Carthage
@@ -51,7 +51,7 @@ $ brew install carthage
 To integrate WhereAmI into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "lypiut/WhereAmI" >= 1.2
+github "lypiut/WhereAmI" >= 2.0
 ```
 
 ###Manual Installation
