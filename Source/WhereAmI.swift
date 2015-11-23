@@ -204,6 +204,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         
         if #available(iOS 9, *) {
             if self.continuousUpdate == false {
+                self.locationManager.allowsBackgroundLocationUpdates = true;
                  self.locationManager.requestLocation()
             } else {
                 self.locationManager.startUpdatingLocation()
