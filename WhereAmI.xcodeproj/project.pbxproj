@@ -7,29 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A3650261AECED5A001F98A8 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A36501A1AECED5A001F98A8 /* WhereAmI.framework */; };
-		7A36502D1AECED5A001F98A8 /* WhereAmITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */; };
 		7A3650371AECEE0B001F98A8 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
+		7A5DB5BB1C2F2CD600A45822 /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8DACB21C2EFECD00781844 /* WhereAmI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A5DB5BC1C2F2CDD00A45822 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
 		7A8DACB01C2EFE0A00781844 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
 		7A8DACB41C2EFECD00781844 /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8DACB21C2EFECD00781844 /* WhereAmI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7AF454C71C2F0E3C0066442E /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8DACB21C2EFECD00781844 /* WhereAmI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7A3650271AECED5A001F98A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A3650111AECED5A001F98A8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7A3650191AECED5A001F98A8;
-			remoteInfo = WhereAmI;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		7A36501A1AECED5A001F98A8 /* WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A3650251AECED5A001F98A8 /* WhereAmITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereAmITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAmITests.swift; sourceTree = "<group>"; };
 		7A3650361AECEE0B001F98A8 /* WhereAmI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhereAmI.swift; path = Source/WhereAmI.swift; sourceTree = SOURCE_ROOT; };
+		7A5DB5B31C2F2C5100A45822 /* WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8DACA71C2EFD0F00781844 /* WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8DACB11C2EFECD00781844 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = SOURCE_ROOT; };
 		7A8DACB21C2EFECD00781844 /* WhereAmI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WhereAmI.h; path = Framework/WhereAmI.h; sourceTree = SOURCE_ROOT; };
@@ -43,11 +32,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A3650221AECED5A001F98A8 /* Frameworks */ = {
+		7A5DB5AF1C2F2C5100A45822 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A3650261AECED5A001F98A8 /* WhereAmI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +54,6 @@
 			children = (
 				7A36501D1AECED5A001F98A8 /* Supporting Files */,
 				7A36501C1AECED5A001F98A8 /* Source */,
-				7A3650291AECED5A001F98A8 /* Tests */,
 				7A36501B1AECED5A001F98A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,8 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				7A36501A1AECED5A001F98A8 /* WhereAmI.framework */,
-				7A3650251AECED5A001F98A8 /* WhereAmITests.xctest */,
 				7A8DACA71C2EFD0F00781844 /* WhereAmI.framework */,
+				7A5DB5B31C2F2C5100A45822 /* WhereAmI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,15 +87,6 @@
 			path = WhereAmI;
 			sourceTree = "<group>";
 		};
-		7A3650291AECED5A001F98A8 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */,
-			);
-			name = Tests;
-			path = WhereAmITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -117,6 +95,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8DACB41C2EFECD00781844 /* WhereAmI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5DB5B01C2F2C5100A45822 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A5DB5BB1C2F2CD600A45822 /* WhereAmI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,23 +135,23 @@
 			productReference = 7A36501A1AECED5A001F98A8 /* WhereAmI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7A3650241AECED5A001F98A8 /* WhereAmITests */ = {
+		7A5DB5B21C2F2C5100A45822 /* WhereAmI tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A3650331AECED5A001F98A8 /* Build configuration list for PBXNativeTarget "WhereAmITests" */;
+			buildConfigurationList = 7A5DB5B81C2F2C5100A45822 /* Build configuration list for PBXNativeTarget "WhereAmI tvOS" */;
 			buildPhases = (
-				7A3650211AECED5A001F98A8 /* Sources */,
-				7A3650221AECED5A001F98A8 /* Frameworks */,
-				7A3650231AECED5A001F98A8 /* Resources */,
+				7A5DB5AE1C2F2C5100A45822 /* Sources */,
+				7A5DB5AF1C2F2C5100A45822 /* Frameworks */,
+				7A5DB5B01C2F2C5100A45822 /* Headers */,
+				7A5DB5B11C2F2C5100A45822 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7A3650281AECED5A001F98A8 /* PBXTargetDependency */,
 			);
-			name = WhereAmITests;
-			productName = WhereAmITests;
-			productReference = 7A3650251AECED5A001F98A8 /* WhereAmITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = "WhereAmI tvOS";
+			productName = "WhereAmI tvOS";
+			productReference = 7A5DB5B31C2F2C5100A45822 /* WhereAmI.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		7A8DACA61C2EFD0F00781844 /* WhereAmI watchOS */ = {
 			isa = PBXNativeTarget;
@@ -198,8 +184,8 @@
 					7A3650191AECED5A001F98A8 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
-					7A3650241AECED5A001F98A8 = {
-						CreatedOnToolsVersion = 6.3.1;
+					7A5DB5B21C2F2C5100A45822 = {
+						CreatedOnToolsVersion = 7.2;
 					};
 					7A8DACA61C2EFD0F00781844 = {
 						CreatedOnToolsVersion = 7.2;
@@ -220,7 +206,7 @@
 			targets = (
 				7A3650191AECED5A001F98A8 /* WhereAmI */,
 				7A8DACA61C2EFD0F00781844 /* WhereAmI watchOS */,
-				7A3650241AECED5A001F98A8 /* WhereAmITests */,
+				7A5DB5B21C2F2C5100A45822 /* WhereAmI tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -233,7 +219,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A3650231AECED5A001F98A8 /* Resources */ = {
+		7A5DB5B11C2F2C5100A45822 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,11 +244,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A3650211AECED5A001F98A8 /* Sources */ = {
+		7A5DB5AE1C2F2C5100A45822 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A36502D1AECED5A001F98A8 /* WhereAmITests.swift in Sources */,
+				7A5DB5BC1C2F2CDD00A45822 /* WhereAmI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,14 +261,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7A3650281AECED5A001F98A8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7A3650191AECED5A001F98A8 /* WhereAmI */;
-			targetProxy = 7A3650271AECED5A001F98A8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7A36502E1AECED5A001F98A8 /* Debug */ = {
@@ -417,35 +395,44 @@
 			};
 			name = Release;
 		};
-		7A3650341AECED5A001F98A8 /* Debug */ = {
+		7A5DB5B91C2F2C5100A45822 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ./Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.lypt.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.WhereAmI-tvOS";
+				PRODUCT_NAME = WhereAmI;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
-		7A3650351AECED5A001F98A8 /* Release */ = {
+		7A5DB5BA1C2F2C5100A45822 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ./Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.lypt.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.WhereAmI-tvOS";
+				PRODUCT_NAME = WhereAmI;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -511,11 +498,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A3650331AECED5A001F98A8 /* Build configuration list for PBXNativeTarget "WhereAmITests" */ = {
+		7A5DB5B81C2F2C5100A45822 /* Build configuration list for PBXNativeTarget "WhereAmI tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7A3650341AECED5A001F98A8 /* Debug */,
-				7A3650351AECED5A001F98A8 /* Release */,
+				7A5DB5B91C2F2C5100A45822 /* Debug */,
+				7A5DB5BA1C2F2C5100A45822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
