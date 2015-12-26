@@ -29,7 +29,6 @@ class InterfaceController: WKInterfaceController {
                 self.locationLabel.setText(String(format: "lat: %.5f\nlng: %.5f", arguments:[location.coordinate.latitude, location.coordinate.longitude]))
             
             }) { [unowned self]() -> Void in
-                
                  self.locationLabel.setText("Location refused 😢")
             }
     }
