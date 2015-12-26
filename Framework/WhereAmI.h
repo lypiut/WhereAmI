@@ -28,6 +28,3 @@ FOUNDATION_EXPORT double WhereAmIVersionNumber;
 FOUNDATION_EXPORT const unsigned char WhereAmIVersionString[];
 
 #import <TargetConditionals.h>
-
-#ifndef _WHEREAMI_
-#define _WHEREAMI_

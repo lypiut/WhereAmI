@@ -11,8 +11,8 @@
 		7A36502D1AECED5A001F98A8 /* WhereAmITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */; };
 		7A3650371AECEE0B001F98A8 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
 		7A8DACB01C2EFE0A00781844 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
-		7A8DACB31C2EFECD00781844 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8DACB11C2EFECD00781844 /* Info.plist */; };
-		7A8DACB41C2EFECD00781844 /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8DACB21C2EFECD00781844 /* WhereAmI.h */; };
+		7A8DACB41C2EFECD00781844 /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8DACB21C2EFECD00781844 /* WhereAmI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7AF454C71C2F0E3C0066442E /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8DACB21C2EFECD00781844 /* WhereAmI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +134,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AF454C71C2F0E3C0066442E /* WhereAmI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +202,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Romain Rivollier";
 				TargetAttributes = {
 					7A3650191AECED5A001F98A8 = {
@@ -239,7 +240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8DACB31C2EFECD00781844 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +436,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = WhereAmITests/Info.plist;
+				INFOPLIST_FILE = ./Framework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.lypt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,7 +450,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = WhereAmITests/Info.plist;
+				INFOPLIST_FILE = ./Framework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.lypt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,7 +474,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -494,7 +494,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -535,6 +535,7 @@
 				7A8DACAE1C2EFD0F00781844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
