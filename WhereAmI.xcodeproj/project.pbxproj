@@ -31,7 +31,6 @@
 		7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAmITests.swift; sourceTree = "<group>"; };
 		7A3650361AECEE0B001F98A8 /* WhereAmI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhereAmI.swift; path = Source/WhereAmI.swift; sourceTree = SOURCE_ROOT; };
 		7A8DACA71C2EFD0F00781844 /* WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A8DACAB1C2EFD0F00781844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8DACB11C2EFECD00781844 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = SOURCE_ROOT; };
 		7A8DACB21C2EFECD00781844 /* WhereAmI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WhereAmI.h; path = Framework/WhereAmI.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -68,7 +67,6 @@
 				7A36501D1AECED5A001F98A8 /* Supporting Files */,
 				7A36501C1AECED5A001F98A8 /* Source */,
 				7A3650291AECED5A001F98A8 /* Tests */,
-				7A8DACA81C2EFD0F00781844 /* WhereAmI watchOS */,
 				7A36501B1AECED5A001F98A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,14 +107,6 @@
 			);
 			name = Tests;
 			path = WhereAmITests;
-			sourceTree = "<group>";
-		};
-		7A8DACA81C2EFD0F00781844 /* WhereAmI watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				7A8DACAB1C2EFD0F00781844 /* Info.plist */,
-			);
-			path = "WhereAmI watchOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

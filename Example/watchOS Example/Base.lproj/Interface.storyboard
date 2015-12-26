@@ -8,8 +8,17 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watchOS_Example" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watchOS_Example" customModuleProvider="target">
+                    <items>
+                        <label width="1" alignment="center" text="Current Location:" textAlignment="center" id="Y4L-wk-Wah"/>
+                        <label width="1" alignment="left" text="Label" textAlignment="center" numberOfLines="0" id="U7M-MM-Xyl"/>
+                    </items>
+                    <connections>
+                        <outlet property="locationLabel" destination="U7M-MM-Xyl" id="bqd-PL-arY"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="463" y="387"/>
         </scene>
     </scenes>
 </document>

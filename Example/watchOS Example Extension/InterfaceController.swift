@@ -11,6 +11,8 @@ import Foundation
 import WhereAmI
 
 class InterfaceController: WKInterfaceController {
+    
+    @IBOutlet var locationLabel: WKInterfaceLabel!
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -21,6 +23,15 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        whereAmI({ [unowned self] (location) -> Void in
+    
+                self.locationLabel.setText(String(format: "lat: %.5f\nlng: %.5f", arguments:[location.coordinate.latitude, location.coordinate.longitude]))
+            
+            }) { [unowned self]() -> Void in
+                
+                 self.locationLabel.setText("Location refused 😢")
+            }
     }
 
     override func didDeactivate() {
