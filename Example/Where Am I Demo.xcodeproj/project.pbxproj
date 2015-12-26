@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A5DB5A51C2F2B1900A45822 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5A01C2F2B0800A45822 /* WhereAmI.framework */; };
+		7A5DB5A61C2F2B1900A45822 /* WhereAmI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5A01C2F2B0800A45822 /* WhereAmI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A5DB5A91C2F2B1F00A45822 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5A21C2F2B0800A45822 /* WhereAmI.framework */; };
+		7A5DB5AA1C2F2B1F00A45822 /* WhereAmI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5A21C2F2B0800A45822 /* WhereAmI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A8DACBE1C2F0B4100781844 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8DACBC1C2F0B4100781844 /* Interface.storyboard */; };
 		7A8DACC01C2F0B4100781844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8DACBF1C2F0B4100781844 /* Assets.xcassets */; };
 		7A8DACC71C2F0B4100781844 /* watchOS Example Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7A8DACC61C2F0B4100781844 /* watchOS Example Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -19,11 +23,44 @@
 		7A9B014F1A4979EA002F134A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B014D1A4979EA002F134A /* Main.storyboard */; };
 		7A9B01511A4979EA002F134A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B01501A4979EA002F134A /* Images.xcassets */; };
 		7A9B01541A4979EA002F134A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B01521A4979EA002F134A /* LaunchScreen.xib */; };
-		7AF454C31C2F0D720066442E /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF454C21C2F0D720066442E /* WhereAmI.framework */; };
-		7AF454C61C2F0D950066442E /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF454C21C2F0D720066442E /* WhereAmI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7A5DB59F1C2F2B0800A45822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A36501A1AECED5A001F98A8;
+			remoteInfo = WhereAmI;
+		};
+		7A5DB5A11C2F2B0800A45822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A8DACA71C2EFD0F00781844;
+			remoteInfo = "WhereAmI watchOS";
+		};
+		7A5DB5A31C2F2B0800A45822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A3650251AECED5A001F98A8;
+			remoteInfo = WhereAmITests;
+		};
+		7A5DB5A71C2F2B1900A45822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A3650191AECED5A001F98A8;
+			remoteInfo = WhereAmI;
+		};
+		7A5DB5AB1C2F2B2000A45822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A8DACA61C2EFD0F00781844;
+			remoteInfo = "WhereAmI watchOS";
+		};
 		7A8DACC81C2F0B4100781844 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7A9B013C1A4979EA002F134A /* Project object */;
@@ -47,6 +84,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7A5DB5A61C2F2B1900A45822 /* WhereAmI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5DB5AD1C2F2B2000A45822 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A5DB5AA1C2F2B1F00A45822 /* WhereAmI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +125,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WhereAmI.xcodeproj; path = ../WhereAmI.xcodeproj; sourceTree = "<group>"; };
 		7A8DACBA1C2F0B4100781844 /* watchOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "watchOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8DACBD1C2F0B4100781844 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		7A8DACBF1C2F0B4100781844 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,7 +142,6 @@
 		7A9B014E1A4979EA002F134A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A9B01501A4979EA002F134A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7A9B01531A4979EA002F134A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7AF454C21C2F0D720066442E /* WhereAmI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WhereAmI.framework; path = "../build/Debug-watchos/WhereAmI.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AF454C31C2F0D720066442E /* WhereAmI.framework in Frameworks */,
+				7A5DB5A91C2F2B1F00A45822 /* WhereAmI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,17 +157,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AF454C61C2F0D950066442E /* WhereAmI.framework in Frameworks */,
+				7A5DB5A51C2F2B1900A45822 /* WhereAmI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A5DB59A1C2F2B0800A45822 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A5DB5A01C2F2B0800A45822 /* WhereAmI.framework */,
+				7A5DB5A21C2F2B0800A45822 /* WhereAmI.framework */,
+				7A5DB5A41C2F2B0800A45822 /* WhereAmITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7A8DACB71C2F04EE00781844 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7AF454C21C2F0D720066442E /* WhereAmI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,6 +210,7 @@
 				7A8DACCA1C2F0B4100781844 /* watchOS Example Extension */,
 				7A8DACB71C2F04EE00781844 /* Frameworks */,
 				7A9B01451A4979EA002F134A /* Products */,
+				7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,10 +281,12 @@
 				7A8DACC21C2F0B4100781844 /* Sources */,
 				7A8DACC31C2F0B4100781844 /* Frameworks */,
 				7A8DACC41C2F0B4100781844 /* Resources */,
+				7A5DB5AD1C2F2B2000A45822 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7A5DB5AC1C2F2B2000A45822 /* PBXTargetDependency */,
 			);
 			name = "watchOS Example Extension";
 			productName = "watchOS Example Extension";
@@ -246,6 +307,7 @@
 			);
 			dependencies = (
 				7A8DACD31C2F0B4100781844 /* PBXTargetDependency */,
+				7A5DB5A81C2F2B1900A45822 /* PBXTargetDependency */,
 			);
 			name = "Where Am I Demo";
 			productName = "Where Am I";
@@ -284,6 +346,12 @@
 			mainGroup = 7A9B013B1A4979EA002F134A;
 			productRefGroup = 7A9B01451A4979EA002F134A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7A5DB59A1C2F2B0800A45822 /* Products */;
+					ProjectRef = 7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7A9B01431A4979EA002F134A /* Where Am I Demo */,
@@ -292,6 +360,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7A5DB5A01C2F2B0800A45822 /* WhereAmI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WhereAmI.framework;
+			remoteRef = 7A5DB59F1C2F2B0800A45822 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7A5DB5A21C2F2B0800A45822 /* WhereAmI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WhereAmI.framework;
+			remoteRef = 7A5DB5A11C2F2B0800A45822 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7A5DB5A41C2F2B0800A45822 /* WhereAmITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WhereAmITests.xctest;
+			remoteRef = 7A5DB5A31C2F2B0800A45822 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7A8DACB81C2F0B4100781844 /* Resources */ = {
@@ -345,6 +437,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7A5DB5A81C2F2B1900A45822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WhereAmI;
+			targetProxy = 7A5DB5A71C2F2B1900A45822 /* PBXContainerItemProxy */;
+		};
+		7A5DB5AC1C2F2B2000A45822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "WhereAmI watchOS";
+			targetProxy = 7A5DB5AB1C2F2B2000A45822 /* PBXContainerItemProxy */;
+		};
 		7A8DACC91C2F0B4100781844 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7A8DACC51C2F0B4100781844 /* watchOS Example Extension */;
@@ -389,6 +491,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "watchOS Example Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -406,6 +510,8 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "watchOS Example Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -542,10 +648,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WhereAmI-gjltujeenvanzxacuduouruiojaa/Build/Products/Debug-iphoneos",
-				);
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Where Am I/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -561,10 +665,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WhereAmI-gjltujeenvanzxacuduouruiojaa/Build/Products/Debug-iphoneos",
-				);
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Where Am I/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
