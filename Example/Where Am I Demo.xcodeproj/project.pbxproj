@@ -7,38 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A3650441AECF062001F98A8 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3650411AECF04C001F98A8 /* WhereAmI.framework */; };
-		7A3650451AECF062001F98A8 /* WhereAmI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3650411AECF04C001F98A8 /* WhereAmI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A8DACB61C2F04C700781844 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8DACB51C2F04C700781844 /* WhereAmI.framework */; };
 		7A9B014A1A4979EA002F134A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B01491A4979EA002F134A /* AppDelegate.swift */; };
 		7A9B014C1A4979EA002F134A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B014B1A4979EA002F134A /* ViewController.swift */; };
 		7A9B014F1A4979EA002F134A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B014D1A4979EA002F134A /* Main.storyboard */; };
 		7A9B01511A4979EA002F134A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B01501A4979EA002F134A /* Images.xcassets */; };
 		7A9B01541A4979EA002F134A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B01521A4979EA002F134A /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7A3650401AECF04C001F98A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A36503B1AECF04C001F98A8 /* WhereAmI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A36501A1AECED5A001F98A8;
-			remoteInfo = WhereAmI;
-		};
-		7A3650421AECF04C001F98A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A36503B1AECF04C001F98A8 /* WhereAmI.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A3650251AECED5A001F98A8;
-			remoteInfo = WhereAmITests;
-		};
-		7A3650461AECF062001F98A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A36503B1AECF04C001F98A8 /* WhereAmI.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 7A3650191AECED5A001F98A8;
-			remoteInfo = WhereAmI;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7A3650481AECF062001F98A8 /* Embed Frameworks */ = {
@@ -47,7 +22,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7A3650451AECF062001F98A8 /* WhereAmI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,7 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7A36503B1AECF04C001F98A8 /* WhereAmI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WhereAmI.xcodeproj; path = ../WhereAmI.xcodeproj; sourceTree = "<group>"; };
+		7A8DACB51C2F04C700781844 /* WhereAmI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WhereAmI.framework; path = "../build/Debug-iphoneos/WhereAmI.framework"; sourceTree = "<group>"; };
 		7A9B01441A4979EA002F134A /* Where Am I Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where Am I Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9B01481A4979EA002F134A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A9B01491A4979EA002F134A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,28 +44,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A3650441AECF062001F98A8 /* WhereAmI.framework in Frameworks */,
+				7A8DACB61C2F04C700781844 /* WhereAmI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7A36503C1AECF04C001F98A8 /* Products */ = {
+		7A8DACB71C2F04EE00781844 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7A3650411AECF04C001F98A8 /* WhereAmI.framework */,
-				7A3650431AECF04C001F98A8 /* WhereAmITests.xctest */,
+				7A8DACB51C2F04C700781844 /* WhereAmI.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7A9B013B1A4979EA002F134A = {
 			isa = PBXGroup;
 			children = (
 				7A9B01461A4979EA002F134A /* Where Am I */,
+				7A8DACB71C2F04EE00781844 /* Frameworks */,
 				7A9B01451A4979EA002F134A /* Products */,
-				7A36503B1AECF04C001F98A8 /* WhereAmI.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,7 +120,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7A3650471AECF062001F98A8 /* PBXTargetDependency */,
 			);
 			name = "Where Am I Demo";
 			productName = "Where Am I";
@@ -180,35 +152,12 @@
 			mainGroup = 7A9B013B1A4979EA002F134A;
 			productRefGroup = 7A9B01451A4979EA002F134A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 7A36503C1AECF04C001F98A8 /* Products */;
-					ProjectRef = 7A36503B1AECF04C001F98A8 /* WhereAmI.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				7A9B01431A4979EA002F134A /* Where Am I Demo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		7A3650411AECF04C001F98A8 /* WhereAmI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = WhereAmI.framework;
-			remoteRef = 7A3650401AECF04C001F98A8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7A3650431AECF04C001F98A8 /* WhereAmITests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = WhereAmITests.xctest;
-			remoteRef = 7A3650421AECF04C001F98A8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7A9B01421A4979EA002F134A /* Resources */ = {
@@ -234,14 +183,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7A3650471AECF062001F98A8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = WhereAmI;
-			targetProxy = 7A3650461AECF062001F98A8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7A9B014D1A4979EA002F134A /* Main.storyboard */ = {

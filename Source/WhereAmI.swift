@@ -202,15 +202,19 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         
         self.locationUpdateHandler = locationHandler
         
-        if #available(iOS 9, *) {
-            if self.continuousUpdate == false {
-                 self.locationManager.requestLocation()
+        #if os(watchOS)
+            self.locationManager.requestLocation()
+        #elseif os(iOS)
+            if #available(iOS 9, *) {
+                if self.continuousUpdate == false {
+                    self.locationManager.requestLocation()
+                } else {
+                    self.locationManager.startUpdatingLocation()
+                }
             } else {
                 self.locationManager.startUpdatingLocation()
             }
-        } else {
-            self.locationManager.startUpdatingLocation()
-        }
+        #endif
     }
     
     /**

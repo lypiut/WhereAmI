@@ -10,6 +10,9 @@
 		7A3650261AECED5A001F98A8 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A36501A1AECED5A001F98A8 /* WhereAmI.framework */; };
 		7A36502D1AECED5A001F98A8 /* WhereAmITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */; };
 		7A3650371AECEE0B001F98A8 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
+		7A8DACB01C2EFE0A00781844 /* WhereAmI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3650361AECEE0B001F98A8 /* WhereAmI.swift */; };
+		7A8DACB31C2EFECD00781844 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8DACB11C2EFECD00781844 /* Info.plist */; };
+		7A8DACB41C2EFECD00781844 /* WhereAmI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8DACB21C2EFECD00781844 /* WhereAmI.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,12 +27,13 @@
 
 /* Begin PBXFileReference section */
 		7A36501A1AECED5A001F98A8 /* WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A36501E1AECED5A001F98A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
-		7A36501F1AECED5A001F98A8 /* WhereAmI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WhereAmI.h; path = Source/WhereAmI.h; sourceTree = "<group>"; };
 		7A3650251AECED5A001F98A8 /* WhereAmITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereAmITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A36502B1AECED5A001F98A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAmITests.swift; sourceTree = "<group>"; };
 		7A3650361AECEE0B001F98A8 /* WhereAmI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhereAmI.swift; path = Source/WhereAmI.swift; sourceTree = SOURCE_ROOT; };
+		7A8DACA71C2EFD0F00781844 /* WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A8DACAB1C2EFD0F00781844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A8DACB11C2EFECD00781844 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = SOURCE_ROOT; };
+		7A8DACB21C2EFECD00781844 /* WhereAmI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WhereAmI.h; path = Framework/WhereAmI.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,14 +52,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A8DACA31C2EFD0F00781844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		7A3650101AECED5A001F98A8 = {
 			isa = PBXGroup;
 			children = (
-				7A36501C1AECED5A001F98A8 /* WhereAmI */,
+				7A36501D1AECED5A001F98A8 /* Supporting Files */,
+				7A36501C1AECED5A001F98A8 /* Source */,
 				7A3650291AECED5A001F98A8 /* Tests */,
+				7A8DACA81C2EFD0F00781844 /* WhereAmI watchOS */,
 				7A36501B1AECED5A001F98A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,50 +78,59 @@
 			children = (
 				7A36501A1AECED5A001F98A8 /* WhereAmI.framework */,
 				7A3650251AECED5A001F98A8 /* WhereAmITests.xctest */,
+				7A8DACA71C2EFD0F00781844 /* WhereAmI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7A36501C1AECED5A001F98A8 /* WhereAmI */ = {
+		7A36501C1AECED5A001F98A8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				7A3650361AECEE0B001F98A8 /* WhereAmI.swift */,
-				7A36501F1AECED5A001F98A8 /* WhereAmI.h */,
-				7A36501D1AECED5A001F98A8 /* Supporting Files */,
 			);
+			name = Source;
 			path = WhereAmI;
 			sourceTree = "<group>";
 		};
 		7A36501D1AECED5A001F98A8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7A36501E1AECED5A001F98A8 /* Info.plist */,
+				7A8DACB11C2EFECD00781844 /* Info.plist */,
+				7A8DACB21C2EFECD00781844 /* WhereAmI.h */,
 			);
 			name = "Supporting Files";
+			path = WhereAmI;
 			sourceTree = "<group>";
 		};
 		7A3650291AECED5A001F98A8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				7A36502C1AECED5A001F98A8 /* WhereAmITests.swift */,
-				7A36502A1AECED5A001F98A8 /* Supporting Files */,
 			);
 			name = Tests;
 			path = WhereAmITests;
 			sourceTree = "<group>";
 		};
-		7A36502A1AECED5A001F98A8 /* Supporting Files */ = {
+		7A8DACA81C2EFD0F00781844 /* WhereAmI watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				7A36502B1AECED5A001F98A8 /* Info.plist */,
+				7A8DACAB1C2EFD0F00781844 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "WhereAmI watchOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
 		7A3650171AECED5A001F98A8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A8DACB41C2EFECD00781844 /* WhereAmI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A8DACA41C2EFD0F00781844 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -154,6 +176,24 @@
 			productReference = 7A3650251AECED5A001F98A8 /* WhereAmITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7A8DACA61C2EFD0F00781844 /* WhereAmI watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A8DACAC1C2EFD0F00781844 /* Build configuration list for PBXNativeTarget "WhereAmI watchOS" */;
+			buildPhases = (
+				7A8DACA21C2EFD0F00781844 /* Sources */,
+				7A8DACA31C2EFD0F00781844 /* Frameworks */,
+				7A8DACA41C2EFD0F00781844 /* Headers */,
+				7A8DACA51C2EFD0F00781844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WhereAmI watchOS";
+			productName = "WhereAmI watchOS";
+			productReference = 7A8DACA71C2EFD0F00781844 /* WhereAmI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -170,6 +210,9 @@
 					7A3650241AECED5A001F98A8 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
+					7A8DACA61C2EFD0F00781844 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = 7A3650141AECED5A001F98A8 /* Build configuration list for PBXProject "WhereAmI" */;
@@ -185,6 +228,7 @@
 			projectRoot = "";
 			targets = (
 				7A3650191AECED5A001F98A8 /* WhereAmI */,
+				7A8DACA61C2EFD0F00781844 /* WhereAmI watchOS */,
 				7A3650241AECED5A001F98A8 /* WhereAmITests */,
 			);
 		};
@@ -195,10 +239,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8DACB31C2EFECD00781844 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7A3650231AECED5A001F98A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A8DACA51C2EFD0F00781844 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,6 +273,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A36502D1AECED5A001F98A8 /* WhereAmITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A8DACA21C2EFD0F00781844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A8DACB01C2EFE0A00781844 /* WhereAmI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,8 +339,10 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -319,26 +381,28 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
 		7A3650311AECED5A001F98A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = ./Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.lypt.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rivollier.WhereAmI;
+				PRODUCT_NAME = WhereAmI;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -346,17 +410,17 @@
 		7A3650321AECED5A001F98A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = ./Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.lypt.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rivollier.WhereAmI;
+				PRODUCT_NAME = WhereAmI;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -393,6 +457,47 @@
 			};
 			name = Release;
 		};
+		7A8DACAD1C2EFD0F00781844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ./Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.WhereAmI-watchOS";
+				PRODUCT_NAME = WhereAmI;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		7A8DACAE1C2EFD0F00781844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ./Framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.WhereAmI-watchOS";
+				PRODUCT_NAME = WhereAmI;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -422,6 +527,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7A8DACAC1C2EFD0F00781844 /* Build configuration list for PBXNativeTarget "WhereAmI watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A8DACAD1C2EFD0F00781844 /* Debug */,
+				7A8DACAE1C2EFD0F00781844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
