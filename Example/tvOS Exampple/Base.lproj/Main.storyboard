@@ -1,25 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="6185.10" systemVersion="14A360a" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="NO" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tvOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhereAmI Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GY1-7T-vqC">
+                                <rect key="frame" x="20" y="0.0" width="1880" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="3Pa-6g-X82"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X38-lT-1ng">
+                                <rect key="frame" x="40" y="605" width="1840" height="455"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-Ic-EKB">
+                                <rect key="frame" x="720" y="455" width="480" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="480" id="NzR-Bg-Otv"/>
+                                    <constraint firstAttribute="height" constant="90" id="OhA-Y2-3Ws"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Where am I ?"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-a3-Kwu">
+                                <rect key="frame" x="720" y="335" width="480" height="90"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="What is this place ?"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QeB-Ic-EKB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2QK-gG-bkr"/>
+                            <constraint firstItem="FDk-a3-Kwu" firstAttribute="width" secondItem="QeB-Ic-EKB" secondAttribute="width" id="ASj-Yu-7Xj"/>
+                            <constraint firstItem="QeB-Ic-EKB" firstAttribute="top" secondItem="FDk-a3-Kwu" secondAttribute="bottom" constant="30" id="JOe-ma-uQL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X38-lT-1ng" secondAttribute="bottom" constant="20" id="WXJ-sw-20m"/>
+                            <constraint firstItem="GY1-7T-vqC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="YA3-vy-GnI"/>
+                            <constraint firstItem="X38-lT-1ng" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ZX8-3G-rnQ"/>
+                            <constraint firstItem="FDk-a3-Kwu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b4c-e2-YTp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GY1-7T-vqC" secondAttribute="trailing" id="gfG-Dv-SAf"/>
+                            <constraint firstItem="X38-lT-1ng" firstAttribute="top" secondItem="QeB-Ic-EKB" secondAttribute="bottom" constant="60" id="hlo-5o-dWc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X38-lT-1ng" secondAttribute="trailing" constant="20" id="iqJ-jT-f0C"/>
+                            <constraint firstItem="FDk-a3-Kwu" firstAttribute="height" secondItem="QeB-Ic-EKB" secondAttribute="height" id="kkJ-rm-vhP"/>
+                            <constraint firstItem="FDk-a3-Kwu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-160" id="m5G-B7-1yz"/>
+                            <constraint firstItem="GY1-7T-vqC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tCd-7Q-svU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="X38-lT-1ng" id="yRb-vB-kJo"/>
+                        <outlet property="whatIsThisPlaceButton" destination="FDk-a3-Kwu" id="vk7-0f-YwT"/>
+                        <outlet property="whereAmIButton" destination="QeB-Ic-EKB" id="8qA-w7-tWY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="295" y="181"/>
         </scene>
     </scenes>
 </document>

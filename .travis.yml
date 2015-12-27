@@ -4,6 +4,7 @@ before_install:
 - gem install xcpretty -N
 script:
 - set -o pipefail
-- xcodebuild -project WhereAmI.xcodeproj -scheme WhereAmI -sdk iphonesimulator  -destination "platform=iOS Simulator,name=iPhone 6" ONLY_ACTIVE_ARCH=NO test | xcpretty -c
+- xcodebuild -project WhereAmI.xcodeproj -scheme WhereAmI -sdk iphonesimulator  -destination "name=iPhone 6S Plus" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
+- xcodebuild -project WhereAmI.xcodeproj -scheme "WhereAmI watchOS" -sdk watchsimulator  -destination "platform=watchOS Simulator,name=Apple Watch - 38mm" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
 - xcodebuild -project "./Example/Where Am I Demo.xcodeproj" -scheme "Where Am I" -sdk iphonesimulator  -destination "platform=iOS Simulator,name=iPhone 6" ONLY_ACTIVE_ARCH=YES build | xcpretty -c
 - pod lib lint --quick

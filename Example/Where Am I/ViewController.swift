@@ -30,11 +30,11 @@ class ViewController: UIViewController {
         
         whereAmI({ [unowned self] (location) -> Void in
             
-            let textUpdated = self.textView.text;
+            let textUpdated = self.textView.text
             self.textView.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy]) + "\n" + textUpdated
             
             }, locationRefusedHandler: { [unowned self] () -> Void in
-                self.showAlertView();
+                self.showAlertView()
         });
         
     }
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         whatIsThisPlace({ [unowned self] (placemark) -> Void in
             
             if let aPlacemark = placemark {
-                self.textView.text = "\(aPlacemark.name) \(aPlacemark.locality) \(aPlacemark.country)";
+                self.textView.text = "\(aPlacemark.name) \(aPlacemark.locality) \(aPlacemark.country)"
             }
             
             }, locationRefusedHandler: { [unowned self] () -> Void in
@@ -61,17 +61,17 @@ class ViewController: UIViewController {
             WhereAmI.sharedInstance.askLocationAuthorization({ [unowned self] (locationIsAuthorized) -> Void in
                 
                 if (!locationIsAuthorized) {
-                    self.showAlertView();
+                    self.showAlertView()
                 } else {
-                    self.startLocationUpdate();
+                    self.startLocationUpdate()
                 }
             });
         }
         else if (!WhereAmI.locationIsAuthorized()) {
-            self.showAlertView();
+            self.showAlertView()
         }
         else {
-            self.startLocationUpdate();
+            self.startLocationUpdate()
         }
     }
     
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         WhereAmI.sharedInstance.continuousUpdate = true;
         WhereAmI.sharedInstance.startUpdatingLocation({ [unowned self]  (location) -> Void in
             
-            self.textView.text = location.description;
+            self.textView.text = location.description
         });
     }
     
@@ -89,9 +89,9 @@ class ViewController: UIViewController {
         let alertView = UIAlertView(title: "Location Refused",
             message: "The app is not allowed to retreive your current location",
             delegate: nil,
-            cancelButtonTitle: "OK");
+            cancelButtonTitle: "OK")
         
-        alertView.show();
+        alertView.show()
     }
 }
 

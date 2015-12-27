@@ -225,13 +225,6 @@
 			path = "tvOS Exampple";
 			sourceTree = "<group>";
 		};
-		7A8DACB71C2F04EE00781844 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7A8DACBB1C2F0B4100781844 /* watchOS Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +253,6 @@
 				7A8DACBB1C2F0B4100781844 /* watchOS Example */,
 				7A8DACCA1C2F0B4100781844 /* watchOS Example Extension */,
 				7A5DB5C31C2F358D00A45822 /* tvOS Example */,
-				7A8DACB71C2F04EE00781844 /* Frameworks */,
 				7A9B01451A4979EA002F134A /* Products */,
 				7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */,
 			);
@@ -724,6 +716,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -769,6 +762,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -831,6 +825,7 @@
 				7A5DB5CF1C2F358D00A45822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A8DACD51C2F0B4100781844 /* Build configuration list for PBXNativeTarget "watchOS Example Extension" */ = {
 			isa = XCConfigurationList;
