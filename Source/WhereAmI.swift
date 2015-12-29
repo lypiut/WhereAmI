@@ -294,7 +294,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         //Get the latest location data
-        guard let latestPosition = locations.last else {
+        guard let latestPosition = locations.first else {
             //No location data
             return
         }

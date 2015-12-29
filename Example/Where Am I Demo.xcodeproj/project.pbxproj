@@ -11,10 +11,6 @@
 		7A5DB5A61C2F2B1900A45822 /* WhereAmI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5A01C2F2B0800A45822 /* WhereAmI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A5DB5A91C2F2B1F00A45822 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5A21C2F2B0800A45822 /* WhereAmI.framework */; };
 		7A5DB5AA1C2F2B1F00A45822 /* WhereAmI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5A21C2F2B0800A45822 /* WhereAmI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7A5DB5C51C2F358D00A45822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DB5C41C2F358D00A45822 /* AppDelegate.swift */; };
-		7A5DB5C71C2F358D00A45822 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DB5C61C2F358D00A45822 /* ViewController.swift */; };
-		7A5DB5CA1C2F358D00A45822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5DB5C81C2F358D00A45822 /* Main.storyboard */; };
-		7A5DB5CC1C2F358D00A45822 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5DB5CB1C2F358D00A45822 /* Assets.xcassets */; };
 		7A5DB5D41C2F35A300A45822 /* WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5D21C2F358D00A45822 /* WhereAmI.framework */; };
 		7A5DB5D51C2F35A300A45822 /* WhereAmI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5DB5D21C2F358D00A45822 /* WhereAmI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A8DACBE1C2F0B4100781844 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8DACBC1C2F0B4100781844 /* Interface.storyboard */; };
@@ -29,6 +25,10 @@
 		7A9B014F1A4979EA002F134A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B014D1A4979EA002F134A /* Main.storyboard */; };
 		7A9B01511A4979EA002F134A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B01501A4979EA002F134A /* Images.xcassets */; };
 		7A9B01541A4979EA002F134A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B01521A4979EA002F134A /* LaunchScreen.xib */; };
+		7ACB43D61C329E8D00497192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB43D01C329E8D00497192 /* AppDelegate.swift */; };
+		7ACB43D71C329E8D00497192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB43D11C329E8D00497192 /* Assets.xcassets */; };
+		7ACB43D81C329E8D00497192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB43D21C329E8D00497192 /* Main.storyboard */; };
+		7ACB43DA1C329E8D00497192 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB43D51C329E8D00497192 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,11 +151,6 @@
 /* Begin PBXFileReference section */
 		7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WhereAmI.xcodeproj; path = ../WhereAmI.xcodeproj; sourceTree = "<group>"; };
 		7A5DB5C21C2F358D00A45822 /* tvOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A5DB5C41C2F358D00A45822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A5DB5C61C2F358D00A45822 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7A5DB5C91C2F358D00A45822 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7A5DB5CB1C2F358D00A45822 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A5DB5CD1C2F358D00A45822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8DACBA1C2F0B4100781844 /* watchOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "watchOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8DACBD1C2F0B4100781844 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		7A8DACBF1C2F0B4100781844 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +167,11 @@
 		7A9B014E1A4979EA002F134A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A9B01501A4979EA002F134A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7A9B01531A4979EA002F134A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7ACB43D01C329E8D00497192 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7ACB43D11C329E8D00497192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7ACB43D31C329E8D00497192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7ACB43D41C329E8D00497192 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ACB43D51C329E8D00497192 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,19 +212,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7A5DB5C31C2F358D00A45822 /* tvOS Example */ = {
-			isa = PBXGroup;
-			children = (
-				7A5DB5C41C2F358D00A45822 /* AppDelegate.swift */,
-				7A5DB5C61C2F358D00A45822 /* ViewController.swift */,
-				7A5DB5C81C2F358D00A45822 /* Main.storyboard */,
-				7A5DB5CB1C2F358D00A45822 /* Assets.xcassets */,
-				7A5DB5CD1C2F358D00A45822 /* Info.plist */,
-			);
-			name = "tvOS Example";
-			path = "tvOS Exampple";
-			sourceTree = "<group>";
-		};
 		7A8DACBB1C2F0B4100781844 /* watchOS Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +239,7 @@
 				7A9B01461A4979EA002F134A /* iOS Example */,
 				7A8DACBB1C2F0B4100781844 /* watchOS Example */,
 				7A8DACCA1C2F0B4100781844 /* watchOS Example Extension */,
-				7A5DB5C31C2F358D00A45822 /* tvOS Example */,
+				7ACB43CF1C329E8D00497192 /* tvOS Example */,
 				7A9B01451A4979EA002F134A /* Products */,
 				7A5DB5991C2F2B0800A45822 /* WhereAmI.xcodeproj */,
 			);
@@ -285,6 +272,18 @@
 				7A9B01481A4979EA002F134A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7ACB43CF1C329E8D00497192 /* tvOS Example */ = {
+			isa = PBXGroup;
+			children = (
+				7ACB43D01C329E8D00497192 /* AppDelegate.swift */,
+				7ACB43D11C329E8D00497192 /* Assets.xcassets */,
+				7ACB43D21C329E8D00497192 /* Main.storyboard */,
+				7ACB43D41C329E8D00497192 /* Info.plist */,
+				7ACB43D51C329E8D00497192 /* ViewController.swift */,
+			);
+			path = "tvOS Example";
 			sourceTree = "<group>";
 		};
 		7AED1AD31A52E24800A6EBBD /* Demo */ = {
@@ -458,8 +457,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A5DB5CC1C2F358D00A45822 /* Assets.xcassets in Resources */,
-				7A5DB5CA1C2F358D00A45822 /* Main.storyboard in Resources */,
+				7ACB43D71C329E8D00497192 /* Assets.xcassets in Resources */,
+				7ACB43D81C329E8D00497192 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,8 +496,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A5DB5C71C2F358D00A45822 /* ViewController.swift in Sources */,
-				7A5DB5C51C2F358D00A45822 /* AppDelegate.swift in Sources */,
+				7ACB43DA1C329E8D00497192 /* ViewController.swift in Sources */,
+				7ACB43D61C329E8D00497192 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,14 +550,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7A5DB5C81C2F358D00A45822 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A5DB5C91C2F358D00A45822 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7A8DACBC1C2F0B4100781844 /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -583,6 +574,14 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		7ACB43D21C329E8D00497192 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7ACB43D31C329E8D00497192 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -594,9 +593,9 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "tvOS Exampple/Info.plist";
+				INFOPLIST_FILE = "tvOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.tvOS-Exampple";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -613,9 +612,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "tvOS Exampple/Info.plist";
+				INFOPLIST_FILE = "tvOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.tvOS-Exampple";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
