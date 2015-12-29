@@ -247,6 +247,7 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
                 if self.locationAuthorization == .AlwaysAuthorization {
                     self.locationManager.requestAlwaysAuthorization()
+                    self.locationManager.allowsBackgroundLocationUpdates = true
                 } else {
                     self.locationManager.requestWhenInUseAuthorization()
                 }

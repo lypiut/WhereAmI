@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 #### Added
 - Support of watchOS 2.0 and tvOS 9.0
+- allowsBackgroundLocationUpdates is true when you request `AlwaysAuthorization`
 
 ## [2.0.0](https://github.com/lypiut/WhereAmI/releases/tag/2.0.0)
 
