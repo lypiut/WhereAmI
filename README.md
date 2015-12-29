@@ -12,8 +12,10 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 
 ##Requirement
 
-- Xcode 7.0
+- Xcode 7.2
 - iOS 7.0+
+- watchOS 2.0
+- tvOS 9.0
 
 ## Installation
 
@@ -34,7 +36,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'WhereAmI', '~> 2.0'
+pod 'WhereAmI', '~> 2.1'
 ```
 
 ### Carthage
@@ -51,7 +53,7 @@ $ brew install carthage
 To integrate WhereAmI into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "lypiut/WhereAmI" >= 2.0
+github "lypiut/WhereAmI" >= 2.1
 ```
 
 ###Manual Installation
@@ -69,7 +71,7 @@ Don't forget to set the key `NSLocationWhenInUseUsageDescription` or `NSLocation
 By default WhereAmI requests the "When in use" permission but you have the possibility to set the "Always" permission by changing the `locationAuthorization` variable.
 
 ```swift
-WhereAmI.sharedInstance.locationAuthorization = WAILocationAuthorization.AlwaysAuthorization
+WhereAmI.sharedInstance.locationAuthorization = .AlwaysAuthorization
 ```
 
 ###Set accuracy profile
