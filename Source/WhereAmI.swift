@@ -211,6 +211,11 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
                 } else {
                     self.locationManager.startUpdatingLocation()
                 }
+                
+                if self.locationAuthorization == .AlwaysAuthorization {
+                    self.locationManager.allowsBackgroundLocationUpdates = true
+                }
+                
             } else {
                 self.locationManager.startUpdatingLocation()
             }
@@ -247,9 +252,6 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
     
                 if self.locationAuthorization == .AlwaysAuthorization {
                     self.locationManager.requestAlwaysAuthorization()
-                    if #available(iOS 9, *) {
-                        self.locationManager.allowsBackgroundLocationUpdates = true
-                    }
                 } else {
                     self.locationManager.requestWhenInUseAuthorization()
                 }
