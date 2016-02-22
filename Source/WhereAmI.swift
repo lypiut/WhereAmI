@@ -57,14 +57,14 @@ public typealias WAILocationAuthorizationRefused = () -> Void
 
 // MARK: - Class Implementation
 
-public class WhereAmI : NSObject, CLLocationManagerDelegate {
+public class WhereAmI : NSObject {
     
     // Singleton
     public static let sharedInstance = WhereAmI()
     
     public let locationManager = CLLocationManager()
     /// Max location validity in seconds
-    public let locationValidity : NSTimeInterval = 15.0
+    public var locationValidity : NSTimeInterval = 40.0
     public var horizontalAccuracy : CLLocationDistance = 500.0
     public var continuousUpdate : Bool = false
     public var locationAuthorization : WAILocationAuthorization = .InUseAuthorization
@@ -275,11 +275,14 @@ public class WhereAmI : NSObject, CLLocationManagerDelegate {
         self.locationUpdateHandler = nil
         self.authorizationHandler = nil
     }
+}
+
+extension WhereAmI : CLLocationManagerDelegate {
     
     // MARK: - CLLocationManager Delegate
     
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-
+        
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             self.authorizationHandler?(locationIsAuthorized: true);
             self.authorizationHandler = nil;
