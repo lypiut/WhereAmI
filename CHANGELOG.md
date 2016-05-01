@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 `WhereAmI` adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.0.0](https://github.com/lypiut/WhereAmI/releases/tag/2.1.0)
+## [3.0.0](https://github.com/lypiut/WhereAmI/releases/tag/3.0.0)
 
 Rewrite of the library in order to be more swift friendly and easy to use.
 
