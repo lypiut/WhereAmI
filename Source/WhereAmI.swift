@@ -35,22 +35,6 @@ public enum WAILocationAuthorization {
 }
 
 /**
-These profils represent different location parameters (accuracy, distance update, ...).
-Look at the didSet method of the locationPrecision variable for more informations
-
-- Default: This profil can be used for most of your usage
-- Low:     Low accuracy profil
-- Medium:  Medium accuracy profil
-- High:    High accuracy profil, when you need the best location
-*/
-public enum WAILocationProfil {
-    case Default
-    case Low
-    case Medium
-    case High
-}
-
-/**
  Represent responses returned when you call the whereAmI method
  
  - LocationUpdated: Location retrieved with success, contains a CLLocation object
@@ -95,26 +79,11 @@ public class WhereAmI : NSObject {
     public var horizontalAccuracy : CLLocationDistance = 500.0
     public var continuousUpdate : Bool = false
     public var locationAuthorization : WAILocationAuthorization = .InUseAuthorization
-    public var locationPrecision : WAILocationProfil {
+    public var locationPrecision : LocationProfile {
         didSet {
-            switch locationPrecision {
-            case .Low:
-                self.locationManager.distanceFilter = 500.0
-                self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-                self.horizontalAccuracy = 2000.0
-            case .Medium:
-                self.locationManager.distanceFilter = 100.0
-                self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-                self.horizontalAccuracy = 1000.0
-            case .High:
-                self.locationManager.distanceFilter = 10.0
-                self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-                self.horizontalAccuracy = 200.0
-            case .Default:
-                self.locationManager.distanceFilter = 50.0
-                self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                self.horizontalAccuracy = 500.0
-            }
+            self.locationManager.distanceFilter = locationPrecision.distanceFilter
+            self.locationManager.desiredAccuracy = locationPrecision.desiredAccuracy
+            self.horizontalAccuracy = locationPrecision.horizontalAccuracy
         }
     }
     
@@ -134,11 +103,7 @@ public class WhereAmI : NSObject {
     */
     public class func userHasBeenPromptedForLocationUse() -> Bool {
         
-        if (CLLocationManager.authorizationStatus() == .NotDetermined) {
-            return false
-        }
-        
-        return true;
+        return CLLocationManager.authorizationStatus() != .NotDetermined
     }
     
     /**
@@ -148,11 +113,10 @@ public class WhereAmI : NSObject {
     */
     public class func locationIsAuthorized() -> Bool {
         
-        if CLLocationManager.authorizationStatus() == .Denied || CLLocationManager.authorizationStatus() == .Restricted {
-            return false
-        }
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        let locationServicesEnabled = CLLocationManager.locationServicesEnabled()
         
-        if (!CLLocationManager.locationServicesEnabled()) {
+        if authorizationStatus == .Denied || authorizationStatus == .Restricted || locationServicesEnabled == false {
             return false
         }
         
@@ -163,7 +127,7 @@ public class WhereAmI : NSObject {
     
     override init() {
         
-        self.locationPrecision = .Default
+        self.locationPrecision = WAILocationProfile.Default
         
         super.init()
         
@@ -177,14 +141,14 @@ public class WhereAmI : NSObject {
     */
     public func whereAmI(locationHandler : WAILocationUpdate) {
         
-        self.askLocationAuthorization({ [weak self] (locationIsAuthorized) -> Void in
+        self.askLocationAuthorization{ [weak self] (locationIsAuthorized) -> Void in
             
             if locationIsAuthorized {
                 self?.startUpdatingLocation(locationHandler)
             } else {
                 locationHandler(response: .Unauthorized)
             }
-            });
+        }
     }
     
     /**
@@ -212,7 +176,7 @@ public class WhereAmI : NSObject {
                     } else {
                         geocoderHandler(response: .PlaceNotFound)
                     }
-                });
+                })
             case let .LocationFail(error):
                 geocoderHandler(response: .Failure(error))
             case .Unauthorized:
@@ -231,21 +195,21 @@ public class WhereAmI : NSObject {
         self.locationUpdateHandler = locationHandler
         
         #if os(watchOS) || os(tvOS)
-            self.locationManager.requestLocation()
+            locationManager.requestLocation()
         #elseif os(iOS)
             if #available(iOS 9, *) {
-                if self.continuousUpdate == false {
-                    self.locationManager.requestLocation()
+                if continuousUpdate == false {
+                    locationManager.requestLocation()
                 } else {
-                    self.locationManager.startUpdatingLocation()
+                    locationManager.startUpdatingLocation()
                 }
                 
-                if self.locationAuthorization == .AlwaysAuthorization {
-                    self.locationManager.allowsBackgroundLocationUpdates = true
+                if locationAuthorization == .AlwaysAuthorization {
+                    locationManager.allowsBackgroundLocationUpdates = true
                 }
                 
             } else {
-                self.locationManager.startUpdatingLocation()
+                locationManager.startUpdatingLocation()
             }
         #endif
     }
@@ -255,8 +219,8 @@ public class WhereAmI : NSObject {
     */
     public func stopUpdatingLocation() {
         
-        self.locationManager.stopUpdatingLocation()
-        self.locationUpdateHandler = nil
+        locationManager.stopUpdatingLocation()
+        locationUpdateHandler = nil
     }
     
     /**
@@ -278,30 +242,30 @@ public class WhereAmI : NSObject {
         #if os(iOS)
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
     
-                if self.locationAuthorization == .AlwaysAuthorization {
-                    self.locationManager.requestAlwaysAuthorization()
+                if locationAuthorization == .AlwaysAuthorization {
+                    locationManager.requestAlwaysAuthorization()
                 } else {
-                    self.locationManager.requestWhenInUseAuthorization()
+                    locationManager.requestWhenInUseAuthorization()
                 }
             } else {
                 //In order to prompt the authorization alert view
-                self.startUpdatingLocation(nil)
+                startUpdatingLocation(nil)
             }
         #elseif os(watchOS)
-            if self.locationAuthorization == WAILocationAuthorization.AlwaysAuthorization {
-                self.locationManager.requestAlwaysAuthorization()
+            if self.locationAuthorization == .AlwaysAuthorization {
+                locationManager.requestAlwaysAuthorization()
             } else {
-                self.locationManager.requestWhenInUseAuthorization()
+                locationManager.requestWhenInUseAuthorization()
             }
         #elseif os(tvOS)
-            self.locationManager.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization()
         #endif
     }
     
     deinit {
         //Cleaning closure
-        self.locationUpdateHandler = nil
-        self.authorizationHandler = nil
+        locationUpdateHandler = nil
+        authorizationHandler = nil
     }
 }
 
@@ -311,14 +275,14 @@ extension WhereAmI : CLLocationManagerDelegate {
     
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
-            self.authorizationHandler?(locationIsAuthorized: true);
-            self.authorizationHandler = nil;
+        switch status {
+        case .AuthorizedAlways, .AuthorizedWhenInUse:
+            authorizationHandler?(locationIsAuthorized: true);
+        case .NotDetermined, .Denied, .Restricted:
+            authorizationHandler?(locationIsAuthorized: false)
         }
-        else if status != .NotDetermined {
-            self.authorizationHandler?(locationIsAuthorized: false)
-            self.authorizationHandler = nil
-        }
+        
+        authorizationHandler = nil;
     }
     
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -328,20 +292,17 @@ extension WhereAmI : CLLocationManagerDelegate {
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         //Get the latest location data
-        guard let latestPosition = locations.first else {
-            //No location data
-            return
-        }
+        guard let latestPosition = locations.first else { return }
         
         let locationAge = -latestPosition.timestamp.timeIntervalSinceNow
         
         //Check if the location is valid for the accuracy profil selected
-        if locationAge < self.locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < self.horizontalAccuracy {
+        if locationAge < locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < horizontalAccuracy {
             
-            self.locationUpdateHandler?(response : .LocationUpdated(latestPosition))
+            locationUpdateHandler?(response : .LocationUpdated(latestPosition))
             
-            if !self.continuousUpdate {
-                self.stopUpdatingLocation()
+            if continuousUpdate == false {
+                stopUpdatingLocation()
             }
         }
     }

@@ -85,7 +85,7 @@ Medium		// Medium precision and an accuracy of ~500m
 High		// High precision and low location speed with an accuracy of ~10m
 ```
 
-These profiles are basic for the moment but they will evolve in future releases.
+You can also create your own location profile with the `LocationProfile` protocol.
 
 ### Get current location
 
