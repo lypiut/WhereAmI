@@ -58,7 +58,7 @@ github "lypiut/WhereAmI" >= 3.0
 
 ### Manual Installation
 
-Just drop the class file *WhereAmI.swift*, located in the `Source` folder, into your project.
+Just drop the *.swift* files, located in the `Source` folder, into your project.
 
 ## How to use
 
@@ -99,15 +99,15 @@ WhereAmI.sharedInstance.continuousUpdate = true;
 //Request the current location
 whereAmI { (response) -> Void in
 
-            switch response {
-            case let .LocationUpdated(location):
-                //location updated
-            case let .LocationFail(error):
-                //An error occurred
-            case .Unauthorized:
-                //The location authorization has been refused
-            }
-        }
+  switch response {
+  case .LocationUpdated(let location):
+    //location updated
+  case .LocationFail(let error):
+    //An error occurred
+  case .Unauthorized:
+    //The location authorization has been refused
+  }
+}
 ```
 
 ### Get current address
@@ -117,17 +117,17 @@ You have the possibility to retrieve informations about the current location (st
 ```swift
 whatIsThisPlace { (response) -> Void in
 
-            switch response {
-            case let .Success(placemark):
-              //reverse geocoding succeed
-            case .PlaceNotFound:
-              // no place found
-            case let .Failure(error):
-              // an error occurred
-            case .Unauthorized:
-              //The location authorization has been refused
-            }
-        }
+  switch response {
+  case .Success(let placemark):
+    //reverse geocoding succeed
+  case .PlaceNotFound:
+    // no place found
+  case .Failure(let error):
+    // an error occurred
+  case .Unauthorized:
+    //The location authorization has been refused
+  }
+}
 ```
 ## Example project
 
