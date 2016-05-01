@@ -28,30 +28,37 @@ class ViewController: UIViewController {
         
         self.textView.text = nil;
         
-        whereAmI({ [unowned self] (location) -> Void in
+        whereAmI { [unowned self] (response) -> Void in
             
-            let textUpdated = self.textView.text
-            self.textView.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy]) + "\n" + textUpdated
-            
-            }, locationRefusedHandler: { [unowned self] () -> Void in
+            switch response {
+            case let .LocationUpdated(location):
+                let textUpdated = self.textView.text
+                self.textView.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy]) + "\n" + textUpdated
+            case let .LocationFail(error):
+                self.textView.text = "An Error occurs \(error.localizedDescription)"
+            case .Unauthorized:
                 self.showAlertView()
-        });
-        
+            }
+        }
     }
+    
     @IBAction func WhatIsThisPlaceTap(sender: AnyObject) {
         
         self.textView.text = nil;
         
-        whatIsThisPlace({ [unowned self] (placemark) -> Void in
+        whatIsThisPlace { [unowned self] (response) -> Void in
             
-            if let aPlacemark = placemark {
-                self.textView.text = "\(aPlacemark.name) \(aPlacemark.locality) \(aPlacemark.country)"
+            switch response {
+            case let .Success(placemark):
+                self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)"
+            case .PlaceNotFound:
+                self.textView.text = "Place not found"
+            case let .Failure(error):
+                self.textView.text = "An Error occurs \(error.localizedDescription)"
+            case .Unauthorized:
+                self.showAlertView()
             }
-            
-            }, locationRefusedHandler: { [unowned self] () -> Void in
-                self.showAlertView();
-        });
-        
+        }
     }
     
     func fullControlWay() {
@@ -60,12 +67,12 @@ class ViewController: UIViewController {
             
             WhereAmI.sharedInstance.askLocationAuthorization({ [unowned self] (locationIsAuthorized) -> Void in
                 
-                if (!locationIsAuthorized) {
+                if !locationIsAuthorized {
                     self.showAlertView()
                 } else {
                     self.startLocationUpdate()
                 }
-            });
+                });
         }
         else if (!WhereAmI.locationIsAuthorized()) {
             self.showAlertView()
@@ -78,18 +85,25 @@ class ViewController: UIViewController {
     private func startLocationUpdate() {
         
         WhereAmI.sharedInstance.continuousUpdate = true;
-        WhereAmI.sharedInstance.startUpdatingLocation({ [unowned self]  (location) -> Void in
+        WhereAmI.sharedInstance.startUpdatingLocation({ [unowned self]  (response) -> Void in
             
-            self.textView.text = location.description
-        });
+            switch response {
+            case let .LocationUpdated(location):
+                self.textView.text = location.description
+            case let .LocationFail(error):
+                self.textView.text = "An Error occurs \(error.localizedDescription)"
+            case .Unauthorized:
+                self.showAlertView()
+            }
+        })
     }
     
     func showAlertView() {
         
         let alertView = UIAlertView(title: "Location Refused",
-            message: "The app is not allowed to retreive your current location",
-            delegate: nil,
-            cancelButtonTitle: "OK")
+                                    message: "The app is not allowed to retreive your current location",
+                                    delegate: nil,
+                                    cancelButtonTitle: "OK")
         
         alertView.show()
     }

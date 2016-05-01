@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        whereAmIButton.addTarget(self, action: "tapOnWhereAmI", forControlEvents: .PrimaryActionTriggered)
-        whatIsThisPlaceButton.addTarget(self, action: "tapOnWhatIsThisPlace", forControlEvents: .PrimaryActionTriggered)
+        whereAmIButton.addTarget(self, action: #selector(ViewController.tapOnWhereAmI), forControlEvents: .PrimaryActionTriggered)
+        whatIsThisPlaceButton.addTarget(self, action: #selector(ViewController.tapOnWhatIsThisPlace), forControlEvents: .PrimaryActionTriggered)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,24 +30,34 @@ class ViewController: UIViewController {
     
     
     func tapOnWhereAmI() {
-        whereAmI({ [unowned self] (location) -> Void in
+        
+        whereAmI { [unowned self] (response) -> Void in
             
+            switch response {
+            case let .LocationUpdated(location):
                 self.resultLabel.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy])
-            
-            }) { [unowned self] in
+            case let .LocationFail(error):
+                self.resultLabel.text = "An Error occurs \(error.localizedDescription)"
+            case .Unauthorized:
                 self.resultLabel.text = "The app is not allowed to retreive your current location"
+            }
         }
     }
 
     func tapOnWhatIsThisPlace() {
-        whatIsThisPlace({ (placemark) -> Void in
+        
+        whatIsThisPlace { [unowned self] (response) -> Void in
             
-            if let place = placemark {
-                self.resultLabel.text = "\(place.name) \(place.locality) \(place.country)"
-            }
-            
-            }) { [unowned self] in
+            switch response {
+            case let .Success(placemark):
+                self.resultLabel.text = "\(placemark.name) \(placemark.locality) \(placemark.country)"
+            case .PlaceNotFound:
+                self.resultLabel.text = "Place not found"
+            case let .Failure(error):
+                self.resultLabel.text = "An Error occurs \(error.localizedDescription)"
+            case .Unauthorized:
                 self.resultLabel.text = "The app is not allowed to retreive your current location"
+            }
         }
     }
 }

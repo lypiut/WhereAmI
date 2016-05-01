@@ -23,14 +23,17 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
-        whereAmI({ [unowned self] (location) -> Void in
-    
+
+        whereAmI { (response) in
+            switch response {
+            case let .LocationUpdated(location):
                 self.locationLabel.setText(String(format: "lat: %.5f\nlng: %.5f", arguments:[location.coordinate.latitude, location.coordinate.longitude]))
-            
-            }) { [unowned self]() -> Void in
-                 self.locationLabel.setText("Location refused 😢")
+            case let .LocationFail(error):
+                self.locationLabel.setText("An Error occured \(error.localizedDescription)")
+            case .Unauthorized:
+                self.locationLabel.setText("The app is not allowed to retreive your current location")
             }
+        }
     }
 
     override func didDeactivate() {
