@@ -10,16 +10,16 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 - the current address
 
 
-##Requirement
+## Requirement
 
-- Xcode 7.2
+- Xcode 7.3
 - iOS 7.0+
 - watchOS 2.0
 - tvOS 9.0
 
 ## Installation
 
-###CocoaPods
+### CocoaPods
 
 WhereAmI is available through [CocoaPods](http://cocoapods.org).  
 
@@ -36,7 +36,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'WhereAmI', '~> 2.1'
+pod 'WhereAmI', '~> 3.0'
 ```
 
 ### Carthage
@@ -53,16 +53,16 @@ $ brew install carthage
 To integrate WhereAmI into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "lypiut/WhereAmI" >= 2.1
+github "lypiut/WhereAmI" >= 3.0
 ```
 
-###Manual Installation
+### Manual Installation
 
 Just drop the class file *WhereAmI.swift*, located in the `Source` folder, into your project.
 
-##How to use
+## How to use
 
-###Request access to Location Services
+### Request access to Location Services
 
 WhereAmI automatically handles permission requests to access location services.
 
@@ -74,20 +74,20 @@ By default WhereAmI requests the "When in use" permission but you have the possi
 WhereAmI.sharedInstance.locationAuthorization = .AlwaysAuthorization
 ```
 
-###Set accuracy profile
+### Set accuracy profile
 
 WhereAmI provides 4 location profiles which affect the accuracy of the location:
 
 ```swift
 Default 	// Good mix between precision and location speed with an accuracy of ~200m
-Low 		// Low precision and fast location speed with an accuracy of ~2000m	
+Low 		// Low precision and fast location speed with an accuracy of ~2000m
 Medium		// Medium precision and an accuracy of ~500m
 High		// High precision and low location speed with an accuracy of ~10m
 ```
 
 These profiles are basic for the moment but they will evolve in future releases.
 
-###Get current location
+### Get current location
 
 To obtain the current location use the `whereAmI` method.
 The location request is executed once by default. If you want a continuous update of the location set the `continuousUpdate` to true.
@@ -97,40 +97,46 @@ The location request is executed once by default. If you want a continuous updat
 WhereAmI.sharedInstance.continuousUpdate = true;
 
 //Request the current location
-whereAmI({ (location) -> Void in
-            
-        //Use the location data        
-    }, locationRefusedHandler: {() -> Void in
-                
-        //The location authorization has been refused
-});
+whereAmI { (response) -> Void in
+
+            switch response {
+            case let .LocationUpdated(location):
+                //location updated
+            case let .LocationFail(error):
+                //An error occurred
+            case .Unauthorized:
+                //The location authorization has been refused
+            }
+        }
 ```
 
-###Get current address 
+### Get current address
 
 You have the possibility to retrieve informations about the current location (street, city, etc.) with the `whatIsThisPlace` method.
 
 ```swift
-whatIsThisPlace({ (placemark) -> Void in
-            
-    	if let aPlacemark = placemark {
-        	   //Do your stuff
-    	} 
-    	else {
-    	   //An error occured
-    	}
-    }, locationRefusedHandler: {() -> Void in
-        //The location authorization has been refused
-});
+whatIsThisPlace { (response) -> Void in
+
+            switch response {
+            case let .Success(placemark):
+              //reverse geocoding succeed
+            case .PlaceNotFound:
+              // no place found
+            case let .Failure(error):
+              // an error occurred
+            case .Unauthorized:
+              //The location authorization has been refused
+            }
+        }
 ```
-##Example project
+## Example project
 
 More examples are available in the `Example` folder.
 
-##Issues & Contributions
+## Issues & Contributions
 
 For any bug or suggestion open an issue on GitHub.
 
-##License
+## License
 
 WhereAmI is available under the MIT license. See the LICENSE file for more info.
