@@ -41,10 +41,10 @@ public protocol LocationProfile {
  - High:    High accuracy profil, when you need the best location
  */
 public enum WAILocationProfile {
-    case Default
-    case Low
-    case Medium
-    case High
+    case `default`
+    case low
+    case medium
+    case high
 }
 
 extension WAILocationProfile : LocationProfile {
@@ -52,13 +52,13 @@ extension WAILocationProfile : LocationProfile {
     public var distanceFilter: CLLocationDistance {
         
         switch self {
-        case .Default:
+        case .default:
             return 50.0
-        case .Low:
+        case .low:
             return 500.0
-        case .Medium:
+        case .medium:
             return 100.0
-        case .High:
+        case .high:
             return 10.0
         }
     }
@@ -66,13 +66,13 @@ extension WAILocationProfile : LocationProfile {
     public var desiredAccuracy: CLLocationAccuracy {
         
         switch self {
-        case .Default:
+        case .default:
             return kCLLocationAccuracyNearestTenMeters
-        case .Low:
+        case .low:
             return kCLLocationAccuracyKilometer
-        case .Medium:
+        case .medium:
             return kCLLocationAccuracyHundredMeters
-        case .High:
+        case .high:
             return kCLLocationAccuracyBestForNavigation
         }
     }
@@ -80,13 +80,13 @@ extension WAILocationProfile : LocationProfile {
     public var horizontalAccuracy: CLLocationDistance {
         
         switch self {
-        case .Default:
+        case .default:
             return 500.0
-        case .Low:
+        case .low:
             return 2000.0
-        case .Medium:
+        case .medium:
             return 1000.0
-        case .High:
+        case .high:
             return 200.0
         }
     }

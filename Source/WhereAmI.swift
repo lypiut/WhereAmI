@@ -30,8 +30,8 @@ Location authorization type
 */
 public enum WAILocationAuthorization {
     @available(iOS 7, watchOS 2, *)
-    case AlwaysAuthorization 
-    case InUseAuthorization
+    case alwaysAuthorization 
+    case inUseAuthorization
 }
 
 /**
@@ -42,9 +42,9 @@ public enum WAILocationAuthorization {
  - Unauthorized:    The user unauthorized the geolocation
  */
 public enum WAILocationResponse {
-    case LocationUpdated(CLLocation)
-    case LocationFail(NSError)
-    case Unauthorized
+    case locationUpdated(CLLocation)
+    case locationFail(NSError)
+    case unauthorized
 }
 
 /**
@@ -56,30 +56,30 @@ public enum WAILocationResponse {
  - Unauthorized:    The user unauthorized the geolocation
  */
 public enum WAIGeocoderResponse {
-    case Success(CLPlacemark)
-    case Failure(NSError)
-    case PlaceNotFound
-    case Unauthorized
+    case success(CLPlacemark)
+    case failure(NSError)
+    case placeNotFound
+    case unauthorized
 }
 
-public typealias WAIAuthorizationResult = (locationIsAuthorized : Bool) -> Void
-public typealias WAILocationUpdate = (response : WAILocationResponse) -> Void
-public typealias WAIReversGeocodedLocationResult = (response : WAIGeocoderResponse) -> Void
+public typealias WAIAuthorizationResult = (_ locationIsAuthorized : Bool) -> Void
+public typealias WAILocationUpdate = (_ response : WAILocationResponse) -> Void
+public typealias WAIReversGeocodedLocationResult = (_ response : WAIGeocoderResponse) -> Void
 
 // MARK: - Class Implementation
 
-public class WhereAmI : NSObject {
+open class WhereAmI : NSObject {
     
     // Singleton
-    public static let sharedInstance = WhereAmI()
+    open static let sharedInstance = WhereAmI()
     
-    public let locationManager = CLLocationManager()
+    open let locationManager = CLLocationManager()
     /// Max location validity in seconds
-    public var locationValidity : NSTimeInterval = 40.0
-    public var horizontalAccuracy : CLLocationDistance = 500.0
-    public var continuousUpdate : Bool = false
-    public var locationAuthorization : WAILocationAuthorization = .InUseAuthorization
-    public var locationPrecision : LocationProfile {
+    open var locationValidity : TimeInterval = 40.0
+    open var horizontalAccuracy : CLLocationDistance = 500.0
+    open var continuousUpdate : Bool = false
+    open var locationAuthorization : WAILocationAuthorization = .inUseAuthorization
+    open var locationPrecision : LocationProfile {
         didSet {
             self.locationManager.distanceFilter = locationPrecision.distanceFilter
             self.locationManager.desiredAccuracy = locationPrecision.desiredAccuracy
@@ -90,7 +90,7 @@ public class WhereAmI : NSObject {
     var authorizationHandler : WAIAuthorizationResult?;
     var locationUpdateHandler : WAILocationUpdate?;
     
-    private lazy var geocoder : CLGeocoder = {
+    fileprivate lazy var geocoder : CLGeocoder = {
         return CLGeocoder()
     }()
     
@@ -101,9 +101,9 @@ public class WhereAmI : NSObject {
     
     - returns: return false if the authorization has not been asked, otherwise true
     */
-    public class func userHasBeenPromptedForLocationUse() -> Bool {
+    open class func userHasBeenPromptedForLocationUse() -> Bool {
         
-        return CLLocationManager.authorizationStatus() != .NotDetermined
+        return CLLocationManager.authorizationStatus() != .notDetermined
     }
     
     /**
@@ -111,12 +111,12 @@ public class WhereAmI : NSObject {
     
     - returns: false if the user's location was denied, otherwise true
     */
-    public class func locationIsAuthorized() -> Bool {
+    open class func locationIsAuthorized() -> Bool {
         
         let authorizationStatus = CLLocationManager.authorizationStatus()
         let locationServicesEnabled = CLLocationManager.locationServicesEnabled()
         
-        if authorizationStatus == .Denied || authorizationStatus == .Restricted || locationServicesEnabled == false {
+        if authorizationStatus == .denied || authorizationStatus == .restricted || locationServicesEnabled == false {
             return false
         }
         
@@ -127,7 +127,7 @@ public class WhereAmI : NSObject {
     
     override init() {
         
-        self.locationPrecision = WAILocationProfile.Default
+        self.locationPrecision = WAILocationProfile.default
         
         super.init()
         
@@ -139,14 +139,14 @@ public class WhereAmI : NSObject {
     
     - parameter locationHandler:        The closure return the latest valid user's positon
     */
-    public func whereAmI(locationHandler : WAILocationUpdate) {
+    open func whereAmI(_ locationHandler : WAILocationUpdate) {
         
         self.askLocationAuthorization{ [weak self] (locationIsAuthorized) -> Void in
             
             if locationIsAuthorized {
                 self?.startUpdatingLocation(locationHandler)
             } else {
-                locationHandler(response: .Unauthorized)
+                locationHandler(.unauthorized)
             }
         }
     }
@@ -157,30 +157,30 @@ public class WhereAmI : NSObject {
     - parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
     - parameter locationRefusedHandler: When the user refuse location, this closure is called.
     */
-    public func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult) {
+    open func whatIsThisPlace(_ geocoderHandler : WAIReversGeocodedLocationResult) {
         
         self.whereAmI({ [weak self] (location) -> Void in
             
             switch location {
-            case let .LocationUpdated(location):
+            case let .locationUpdated(location):
                 self?.geocoder.cancelGeocode()
                 self?.geocoder.reverseGeocodeLocation(location, completionHandler: { (placesmark, error) -> Void in
                     
                     if let anError = error {
-                        geocoderHandler(response: .Failure(anError))
+                        geocoderHandler(.failure(anError as NSError))
                         return
                     }
                     
                     if let placemark = placesmark?.first {
-                        geocoderHandler(response: .Success(placemark))
+                        geocoderHandler(.success(placemark))
                     } else {
-                        geocoderHandler(response: .PlaceNotFound)
+                        geocoderHandler(.placeNotFound)
                     }
                 })
-            case let .LocationFail(error):
-                geocoderHandler(response: .Failure(error))
-            case .Unauthorized:
-                geocoderHandler(response: .Unauthorized)
+            case let .locationFail(error):
+                geocoderHandler(.failure(error))
+            case .unauthorized:
+                geocoderHandler(.unauthorized)
             }
         })
     }
@@ -190,7 +190,7 @@ public class WhereAmI : NSObject {
     
     - parameter locationHandler: The closure returns an updated location conforms to the accuracy filters
     */
-    public func startUpdatingLocation(locationHandler : WAILocationUpdate?) {
+    open func startUpdatingLocation(_ locationHandler : WAILocationUpdate?) {
         
         self.locationUpdateHandler = locationHandler
         
@@ -204,7 +204,7 @@ public class WhereAmI : NSObject {
                     locationManager.startUpdatingLocation()
                 }
                 
-                if locationAuthorization == .AlwaysAuthorization {
+                if locationAuthorization == .alwaysAuthorization {
                     locationManager.allowsBackgroundLocationUpdates = true
                 }
                 
@@ -217,7 +217,7 @@ public class WhereAmI : NSObject {
     /**
     Stop the location update and release the location handler.
     */
-    public func stopUpdatingLocation() {
+    open func stopUpdatingLocation() {
         
         locationManager.stopUpdatingLocation()
         locationUpdateHandler = nil
@@ -228,12 +228,12 @@ public class WhereAmI : NSObject {
     
     - parameter resultHandler: The closure return if the authorization is granted or not
     */
-    public func askLocationAuthorization(resultHandler : WAIAuthorizationResult) {
+    open func askLocationAuthorization(_ resultHandler : WAIAuthorizationResult) {
         
         // if the authorization was already asked we return the result
         if WhereAmI.userHasBeenPromptedForLocationUse() {
             
-            resultHandler(locationIsAuthorized: WhereAmI.locationIsAuthorized())
+            resultHandler(WhereAmI.locationIsAuthorized())
             return
         }
         
@@ -242,7 +242,7 @@ public class WhereAmI : NSObject {
         #if os(iOS)
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
     
-                if locationAuthorization == .AlwaysAuthorization {
+                if locationAuthorization == .alwaysAuthorization {
                     locationManager.requestAlwaysAuthorization()
                 } else {
                     locationManager.requestWhenInUseAuthorization()
@@ -252,7 +252,7 @@ public class WhereAmI : NSObject {
                 startUpdatingLocation(nil)
             }
         #elseif os(watchOS)
-            if self.locationAuthorization == .AlwaysAuthorization {
+            if self.locationAuthorization == .alwaysAuthorization {
                 locationManager.requestAlwaysAuthorization()
             } else {
                 locationManager.requestWhenInUseAuthorization()
@@ -273,23 +273,23 @@ extension WhereAmI : CLLocationManagerDelegate {
     
     // MARK: - CLLocationManager Delegate
     
-    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         switch status {
-        case .AuthorizedAlways, .AuthorizedWhenInUse:
-            authorizationHandler?(locationIsAuthorized: true);
-        case .NotDetermined, .Denied, .Restricted:
-            authorizationHandler?(locationIsAuthorized: false)
+        case .authorizedAlways, .authorizedWhenInUse:
+            authorizationHandler?(true);
+        case .notDetermined, .denied, .restricted:
+            authorizationHandler?(false)
         }
         
         authorizationHandler = nil;
     }
     
-    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        self.locationUpdateHandler?(response: .LocationFail(error))
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        self.locationUpdateHandler?(.locationFail(error as NSError))
     }
     
-    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         //Get the latest location data
         guard let latestPosition = locations.first else { return }
@@ -299,7 +299,7 @@ extension WhereAmI : CLLocationManagerDelegate {
         //Check if the location is valid for the accuracy profil selected
         if locationAge < locationValidity && CLLocationCoordinate2DIsValid(latestPosition.coordinate) && latestPosition.horizontalAccuracy < horizontalAccuracy {
             
-            locationUpdateHandler?(response : .LocationUpdated(latestPosition))
+            locationUpdateHandler?(.locationUpdated(latestPosition))
             
             if continuousUpdate == false {
                 stopUpdatingLocation()
@@ -314,7 +314,7 @@ Out of the box function, the easiest way to obtain the user's GPS coordinate
 - parameter locationHandler:        The closure return the latest valid user's positon
 - parameter locationRefusedHandler: When the user refuse location, this closure is called.
 */
-public func whereAmI(locationHandler : WAILocationUpdate) {
+public func whereAmI(_ locationHandler : WAILocationUpdate) {
     WhereAmI.sharedInstance.whereAmI(locationHandler)
 }
 
@@ -324,7 +324,7 @@ Out of the box function, the easiest way to obtain the user's location (street, 
 - parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
 - parameter locationRefusedHandler: When the user refuse location, this closure is called.
 */
-public func whatIsThisPlace(geocoderHandler : WAIReversGeocodedLocationResult) {
+public func whatIsThisPlace(_ geocoderHandler : WAIReversGeocodedLocationResult) {
     WhereAmI.sharedInstance.whatIsThisPlace(geocoderHandler);
 }
 
