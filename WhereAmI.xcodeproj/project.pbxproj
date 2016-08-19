@@ -192,6 +192,7 @@
 					};
 					7A5DB5B21C2F2C5100A45822 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					7A8DACA61C2EFD0F00781844 = {
 						CreatedOnToolsVersion = 7.2;
@@ -437,6 +438,7 @@
 				PRODUCT_NAME = WhereAmI;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -458,6 +460,7 @@
 				PRODUCT_NAME = WhereAmI;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};

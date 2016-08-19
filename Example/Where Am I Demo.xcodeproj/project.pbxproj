@@ -389,6 +389,7 @@
 				TargetAttributes = {
 					7A5DB5C11C2F358D00A45822 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					7A8DACB91C2F0B4100781844 = {
 						CreatedOnToolsVersion = 7.2;
@@ -601,6 +602,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -620,6 +622,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rivollier.tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
