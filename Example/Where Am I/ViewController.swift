@@ -24,38 +24,38 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func WhereAmITap(sender: AnyObject) {
+    @IBAction func WhereAmITap(_ sender: AnyObject) {
         
         self.textView.text = nil;
         
         whereAmI { [unowned self] (response) -> Void in
             
             switch response {
-            case let .LocationUpdated(location):
+            case let .locationUpdated(location):
                 let textUpdated = self.textView.text
-                self.textView.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy]) + "\n" + textUpdated
-            case let .LocationFail(error):
+                self.textView.text = String(format: "lat: %.5f lng: %.5f acc: %2.f", arguments:[location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy]) + "\n" + textUpdated!
+            case let .locationFail(error):
                 self.textView.text = "An Error occurs \(error.localizedDescription)"
-            case .Unauthorized:
+            case .unauthorized:
                 self.showAlertView()
             }
         }
     }
     
-    @IBAction func WhatIsThisPlaceTap(sender: AnyObject) {
+    @IBAction func WhatIsThisPlaceTap(_ sender: AnyObject) {
         
         self.textView.text = nil;
         
         whatIsThisPlace { [unowned self] (response) -> Void in
             
             switch response {
-            case let .Success(placemark):
+            case let .success(placemark):
                 self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)"
-            case .PlaceNotFound:
+            case .placeNotFound:
                 self.textView.text = "Place not found"
-            case let .Failure(error):
+            case let .failure(error):
                 self.textView.text = "An Error occurs \(error.localizedDescription)"
-            case .Unauthorized:
+            case .unauthorized:
                 self.showAlertView()
             }
         }
@@ -82,17 +82,17 @@ class ViewController: UIViewController {
         }
     }
     
-    private func startLocationUpdate() {
+    fileprivate func startLocationUpdate() {
         
         WhereAmI.sharedInstance.continuousUpdate = true;
         WhereAmI.sharedInstance.startUpdatingLocation({ [unowned self]  (response) -> Void in
             
             switch response {
-            case let .LocationUpdated(location):
+            case let .locationUpdated(location):
                 self.textView.text = location.description
-            case let .LocationFail(error):
+            case let .locationFail(error):
                 self.textView.text = "An Error occurs \(error.localizedDescription)"
-            case .Unauthorized:
+            case .unauthorized:
                 self.showAlertView()
             }
         })

@@ -14,8 +14,8 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet var locationLabel: WKInterfaceLabel!
 
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
     }
@@ -26,11 +26,11 @@ class InterfaceController: WKInterfaceController {
 
         whereAmI { (response) in
             switch response {
-            case let .LocationUpdated(location):
+            case let .locationUpdated(location):
                 self.locationLabel.setText(String(format: "lat: %.5f\nlng: %.5f", arguments:[location.coordinate.latitude, location.coordinate.longitude]))
-            case let .LocationFail(error):
+            case let .locationFail(error):
                 self.locationLabel.setText("An Error occured \(error.localizedDescription)")
-            case .Unauthorized:
+            case .unauthorized:
                 self.locationLabel.setText("The app is not allowed to retreive your current location")
             }
         }
