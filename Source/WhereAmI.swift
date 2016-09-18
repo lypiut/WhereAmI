@@ -23,14 +23,13 @@
 import CoreLocation
 
 /**
-Location authorization type
-
-- AlwaysAuthorization: The location is updated even if the application is in background
-- InUseAuthorization:  The location is updated when the application is running
-*/
+ Location authorization type
+ 
+ - AlwaysAuthorization: The location is updated even if the application is in background
+ - InUseAuthorization:  The location is updated when the application is running
+ */
 public enum WAILocationAuthorization {
-    @available(iOS 7, watchOS 2, *)
-    case alwaysAuthorization 
+    case alwaysAuthorization
     case inUseAuthorization
 }
 
@@ -97,20 +96,20 @@ open class WhereAmI : NSObject {
     // MARK: - Class methods
     
     /**
-    Check if the location authorization has been asked
-    
-    - returns: return false if the authorization has not been asked, otherwise true
-    */
+     Check if the location authorization has been asked
+     
+     - returns: return false if the authorization has not been asked, otherwise true
+     */
     open class func userHasBeenPromptedForLocationUse() -> Bool {
         
         return CLLocationManager.authorizationStatus() != .notDetermined
     }
     
     /**
-    Check if the localization is authorized
-    
-    - returns: false if the user's location was denied, otherwise true
-    */
+     Check if the localization is authorized
+     
+     - returns: false if the user's location was denied, otherwise true
+     */
     open class func locationIsAuthorized() -> Bool {
         
         let authorizationStatus = CLLocationManager.authorizationStatus()
@@ -135,11 +134,11 @@ open class WhereAmI : NSObject {
     }
     
     /**
-    All in one method, the easiest way to obtain the user's GPS coordinate
-    
-    - parameter locationHandler:        The closure return the latest valid user's positon
-    */
-    open func whereAmI(_ locationHandler : WAILocationUpdate) {
+     All in one method, the easiest way to obtain the user's GPS coordinate
+     
+     - parameter locationHandler:        The closure return the latest valid user's positon
+     */
+    open func whereAmI(_ locationHandler : @escaping WAILocationUpdate) {
         
         self.askLocationAuthorization{ [weak self] (locationIsAuthorized) -> Void in
             
@@ -152,12 +151,12 @@ open class WhereAmI : NSObject {
     }
     
     /**
-    All in one method, the easiest way to obtain the user's location (street, city, etc.)
-    
-    - parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
-    - parameter locationRefusedHandler: When the user refuse location, this closure is called.
-    */
-    open func whatIsThisPlace(_ geocoderHandler : WAIReversGeocodedLocationResult) {
+     All in one method, the easiest way to obtain the user's location (street, city, etc.)
+     
+     - parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
+     - parameter locationRefusedHandler: When the user refuse location, this closure is called.
+     */
+    open func whatIsThisPlace(_ geocoderHandler : @escaping WAIReversGeocodedLocationResult) {
         
         self.whereAmI({ [weak self] (location) -> Void in
             
@@ -182,14 +181,14 @@ open class WhereAmI : NSObject {
             case .unauthorized:
                 geocoderHandler(.unauthorized)
             }
-        })
+            })
     }
     
     /**
-    Start the location update. If the continuousUpdate is at true the locationHandler will be used for each postion update.
-    
-    - parameter locationHandler: The closure returns an updated location conforms to the accuracy filters
-    */
+     Start the location update. If the continuousUpdate is at true the locationHandler will be used for each postion update.
+     
+     - parameter locationHandler: The closure returns an updated location conforms to the accuracy filters
+     */
     open func startUpdatingLocation(_ locationHandler : WAILocationUpdate?) {
         
         self.locationUpdateHandler = locationHandler
@@ -215,8 +214,8 @@ open class WhereAmI : NSObject {
     }
     
     /**
-    Stop the location update and release the location handler.
-    */
+     Stop the location update and release the location handler.
+     */
     open func stopUpdatingLocation() {
         
         locationManager.stopUpdatingLocation()
@@ -224,11 +223,11 @@ open class WhereAmI : NSObject {
     }
     
     /**
-    Request location authorization
-    
-    - parameter resultHandler: The closure return if the authorization is granted or not
-    */
-    open func askLocationAuthorization(_ resultHandler : WAIAuthorizationResult) {
+     Request location authorization
+     
+     - parameter resultHandler: The closure return if the authorization is granted or not
+     */
+    open func askLocationAuthorization(_ resultHandler : @escaping WAIAuthorizationResult) {
         
         // if the authorization was already asked we return the result
         if WhereAmI.userHasBeenPromptedForLocationUse() {
@@ -240,16 +239,10 @@ open class WhereAmI : NSObject {
         self.authorizationHandler = resultHandler
         
         #if os(iOS)
-            if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
-    
-                if locationAuthorization == .alwaysAuthorization {
-                    locationManager.requestAlwaysAuthorization()
-                } else {
-                    locationManager.requestWhenInUseAuthorization()
-                }
+            if locationAuthorization == .alwaysAuthorization {
+                locationManager.requestAlwaysAuthorization()
             } else {
-                //In order to prompt the authorization alert view
-                startUpdatingLocation(nil)
+                locationManager.requestWhenInUseAuthorization()
             }
         #elseif os(watchOS)
             if self.locationAuthorization == .alwaysAuthorization {
@@ -309,22 +302,22 @@ extension WhereAmI : CLLocationManagerDelegate {
 }
 
 /**
-Out of the box function, the easiest way to obtain the user's GPS coordinate
-
-- parameter locationHandler:        The closure return the latest valid user's positon
-- parameter locationRefusedHandler: When the user refuse location, this closure is called.
-*/
-public func whereAmI(_ locationHandler : WAILocationUpdate) {
+ Out of the box function, the easiest way to obtain the user's GPS coordinate
+ 
+ - parameter locationHandler:        The closure return the latest valid user's positon
+ - parameter locationRefusedHandler: When the user refuse location, this closure is called.
+ */
+public func whereAmI(_ locationHandler : @escaping WAILocationUpdate) {
     WhereAmI.sharedInstance.whereAmI(locationHandler)
 }
 
 /**
-Out of the box function, the easiest way to obtain the user's location (street, city, etc.)
-
-- parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
-- parameter locationRefusedHandler: When the user refuse location, this closure is called.
-*/
-public func whatIsThisPlace(_ geocoderHandler : WAIReversGeocodedLocationResult) {
+ Out of the box function, the easiest way to obtain the user's location (street, city, etc.)
+ 
+ - parameter geocoderHandler:        The closure return a placemark corresponding to the current user's location. If an error occured it return nil
+ - parameter locationRefusedHandler: When the user refuse location, this closure is called.
+ */
+public func whatIsThisPlace(_ geocoderHandler : @escaping WAIReversGeocodedLocationResult) {
     WhereAmI.sharedInstance.whatIsThisPlace(geocoderHandler);
 }
 

@@ -12,8 +12,9 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 
 ## Requirement
 
-- Xcode 7.3
-- iOS 7.0+
+- Swift 3
+- Xcode 8
+- iOS 8.0+
 - watchOS 2.0
 - tvOS 9.0
 
@@ -36,7 +37,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'WhereAmI', '~> 3.0'
+pod 'WhereAmI', '~> 4.0'
 ```
 
 ### Carthage
@@ -53,7 +54,7 @@ $ brew install carthage
 To integrate WhereAmI into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "lypiut/WhereAmI" >= 3.0
+github "lypiut/WhereAmI" >= 4.0
 ```
 
 ### Manual Installation
@@ -97,14 +98,14 @@ The location request is executed once by default. If you want a continuous updat
 WhereAmI.sharedInstance.continuousUpdate = true;
 
 //Request the current location
-whereAmI { (response) -> Void in
+whereAmI { response in
 
   switch response {
-  case .LocationUpdated(let location):
+  case .locationUpdated(let location):
     //location updated
-  case .LocationFail(let error):
+  case .locationFail(let error):
     //An error occurred
-  case .Unauthorized:
+  case .unauthorized:
     //The location authorization has been refused
   }
 }
@@ -118,13 +119,13 @@ You have the possibility to retrieve informations about the current location (st
 whatIsThisPlace { (response) -> Void in
 
   switch response {
-  case .Success(let placemark):
+  case .success(let placemark):
     //reverse geocoding succeed
-  case .PlaceNotFound:
+  case .placeNotFound:
     // no place found
-  case .Failure(let error):
+  case .failure(let error):
     // an error occurred
-  case .Unauthorized:
+  case .unauthorized:
     //The location authorization has been refused
   }
 }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "WhereAmI"
-  s.version      = "3.0.0"
+  s.version      = "4.0.0"
   s.summary      = "An easy to use Core Location library in Swift"
   s.homepage     = "https://github.com/lypiut/WhereAmI"
   s.license      = "MIT"
