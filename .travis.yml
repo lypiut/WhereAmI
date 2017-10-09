@@ -5,8 +5,8 @@ before_install:
 script:
 - set -o pipefail
 - xcodebuild -project WhereAmI.xcodeproj -scheme WhereAmI -sdk iphonesimulator  -destination "name=iPhone 6S Plus" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
-- xcodebuild -project WhereAmI.xcodeproj -scheme "WhereAmI watchOS" -sdk watchsimulator  -destination "platform=watchOS Simulator,name=Apple Watch - 38mm" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
-- xcodebuild -project WhereAmI.xcodeproj -scheme "WhereAmI tvOS" -sdk appletvsimulator  -destination "name=Apple TV 1080p" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
+- xcodebuild -project WhereAmI.xcodeproj -scheme WhereAmI -sdk watchsimulator  -destination "platform=watchOS Simulator,name=Apple Watch - 38mm" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
+- xcodebuild -project WhereAmI.xcodeproj -scheme WhereAmI -sdk appletvsimulator  -destination "name=Apple TV 1080p" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
 - xcodebuild -project "./Example/Where Am I Demo.xcodeproj" -scheme "Where Am I" -destination "name=iPhone 6s" ONLY_ACTIVE_ARCH=YES build | xcpretty -c
 - xcodebuild -project "./Example/Where Am I Demo.xcodeproj" -scheme "tvOS Exampple" -destination "name=Apple TV 1080p" ONLY_ACTIVE_ARCH=YES build | xcpretty -c
 - pod lib lint --quick

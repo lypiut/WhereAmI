@@ -23,13 +23,7 @@ class ViewController: UIViewController {
         whatIsThisPlaceButton.addTarget(self, action: #selector(ViewController.tapOnWhatIsThisPlace), for: .primaryActionTriggered)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func tapOnWhereAmI() {
+    @objc dynamic func tapOnWhereAmI() {
         
         whereAmI { [unowned self] (response) -> Void in
             
@@ -44,13 +38,13 @@ class ViewController: UIViewController {
         }
     }
 
-    func tapOnWhatIsThisPlace() {
+    @objc dynamic func tapOnWhatIsThisPlace() {
         
         whatIsThisPlace { [unowned self] (response) -> Void in
             
             switch response {
             case let .success(placemark):
-                self.resultLabel.text = "\(placemark.name) \(placemark.locality) \(placemark.country)"
+                self.resultLabel.text = "\(String(describing: placemark.name)) \(String(describing: placemark.locality)) \(String(describing: placemark.country))"
             case .placeNotFound:
                 self.resultLabel.text = "Place not found"
             case let .failure(error):
