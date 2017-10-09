@@ -50,7 +50,7 @@ class ViewController: UIViewController {
             
             switch response {
             case let .success(placemark):
-                self.textView.text = "\(placemark.name) \(placemark.locality) \(placemark.country)"
+                self.textView.text = "\(String(describing: placemark.name)) \(String(describing: placemark.locality)) \(String(describing: placemark.country))"
             case .placeNotFound:
                 self.textView.text = "Place not found"
             case let .failure(error):

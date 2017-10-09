@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 `WhereAmI` adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.0](https://github.com/lypiut/WhereAmI/releases/tag/5.0.0)
+
+- Update to Swift 4
+
 ## [4.0.0](https://github.com/lypiut/WhereAmI/releases/tag/4.0.0)
 
 - Swift 3 support

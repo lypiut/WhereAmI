@@ -67,10 +67,10 @@ public typealias WAIReversGeocodedLocationResult = (_ response : WAIGeocoderResp
 
 // MARK: - Class Implementation
 
-open class WhereAmI : NSObject {
+public final class WhereAmI : NSObject {
     
     // Singleton
-    open static let sharedInstance = WhereAmI()
+    public static let sharedInstance = WhereAmI()
     
     open let locationManager = CLLocationManager()
     /// Max location validity in seconds
@@ -89,9 +89,7 @@ open class WhereAmI : NSObject {
     var authorizationHandler : WAIAuthorizationResult?;
     var locationUpdateHandler : WAILocationUpdate?;
     
-    fileprivate lazy var geocoder : CLGeocoder = {
-        return CLGeocoder()
-    }()
+    fileprivate lazy var geocoder : CLGeocoder = CLGeocoder()
     
     // MARK: - Class methods
     

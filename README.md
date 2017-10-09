@@ -12,8 +12,8 @@ An easy to use Core Location library in Swift with few lines of code you can obt
 
 ## Requirement
 
-- Swift 3
-- Xcode 8
+- Swift 4
+- Xcode 9
 - iOS 8.0+
 - watchOS 2.0
 - tvOS 9.0
