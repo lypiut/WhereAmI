@@ -1,0 +1,18 @@
+on: pull_request
+name: Test
+jobs:
+  test:
+    name: Test
+    runs-on: macOS-latest
+    strategy:
+        matrix:
+          destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X', 'platform=tvOS Simulator,OS=12.2,name=Apple TV 4K']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Build and test
+        run: |
+          cd WhereAmI
+          xcodebuild -project WhereAmI.xcodeproj -scheme WhereAmI -sdk iphonesimulator  -destination "${destination}" ONLY_ACTIVE_ARCH=NO build | xcpretty -c
+        env: 
+         destination: ${{ matrix.destination }}
